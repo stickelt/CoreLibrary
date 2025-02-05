@@ -28,6 +28,5 @@ jobs:
     
     - name: Push to GitHub Packages
       run: |
-        dotnet nuget push "./CoreLibrary/bin/Release/*.nupkg" 
-          --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" 
-          --api-key "${{ secrets.GITHUB_TOKEN }}"
+        dotnet nuget push "./CoreLibrary/bin/Release/*.nupkg" --source "https://nuget.pkg.github.com/`${{ github.repository_owner }}/index.json" --api-key "`${{ secrets.GITHUB_TOKEN }}"
+

@@ -1,0 +1,10 @@
+## .NET Core
+bin/
+obj/
+/packages/
+*.user
+.vs/
+.vscode/
+/TestResults/
+*.suo
+*.tmp

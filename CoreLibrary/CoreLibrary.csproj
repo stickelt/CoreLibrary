@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
 
     <PackageId>Stickelt.CoreLibrary</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Tom Stickel</Authors>
     <Company>Witcher</Company>
     <Description>A core library containing shared interfaces and base functionality for .NET applications</Description>
@@ -24,7 +24,7 @@
     <!-- Include Directory.Packages.props in the NuGet package -->
     <None Include="..\Directory.Packages.props" Pack="true" PackagePath="contentFiles/any/any/" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <!-- Notice no version numbers here - they come from Directory.Packages.props -->
     <PackageReference Include="Dapper" />

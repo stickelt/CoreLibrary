@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
 
     <PackageId>Stickelt.CoreLibrary</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Tom Stickel</Authors>
     <Company>Witcher</Company>
     <Description>A core library containing shared interfaces and base functionality for .NET applications</Description>
@@ -18,11 +18,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-        <None Include="..\README.md" Pack="true" PackagePath="\" />
-  </ItemGroup>
-  <ItemGroup>
-    <!-- Include Directory.Packages.props in the NuGet package -->
-    <None Include="..\Directory.Packages.props" Pack="true" PackagePath="contentFiles/any/any/" />
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    
+    <!-- Include Directory.Packages.props as content -->
+    <Content Include="..\Directory.Packages.props">
+      <Pack>true</Pack>
+      <PackagePath>build/</PackagePath>
+    </Content>
+    
+    <!-- Include the custom props file -->
+    <Content Include="build\Stickelt.CoreLibrary.props">
+      <Pack>true</Pack>
+      <PackagePath>build/</PackagePath>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

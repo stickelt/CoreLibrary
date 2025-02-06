@@ -5,13 +5,13 @@
     <Nullable>enable</Nullable>
 
     <PackageId>Stickelt.CoreLibrary</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>  <!-- Increment version to push a fresh package -->
     <Authors>Tom Stickel</Authors>
     <Company>Witcher</Company>
     <Description>A core library containing shared interfaces and base functionality for .NET applications</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
-       <!-- Adding some additional useful NuGet package properties -->
+    <!-- Useful NuGet metadata -->
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -19,22 +19,14 @@
 
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="\" />
-    
-    <!-- Include Directory.Packages.props as content -->
-    <Content Include="..\Directory.Packages.props">
-      <Pack>true</Pack>
-      <PackagePath>build/</PackagePath>
-    </Content>
-    
-    <!-- Include the custom props file -->
-    <Content Include="build\Stickelt.CoreLibrary.props">
-      <Pack>true</Pack>
-      <PackagePath>build/</PackagePath>
-    </Content>
+
+    <!-- Ensure Directory.Packages.props is included as a build-time property, not content -->  
+    <None Include="build/Directory.Packages.props" Pack="true" PackagePath="build/" />
+    <None Include="build/Stickelt.CoreLibrary.props" Pack="true" PackagePath="build/" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Notice no version numbers here - they come from Directory.Packages.props -->
+    <!-- Dependencies, with versions managed via Directory.Packages.props -->
     <PackageReference Include="Dapper" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
     <PackageReference Include="Polly" />

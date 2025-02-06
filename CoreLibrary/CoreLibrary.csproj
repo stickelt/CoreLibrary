@@ -20,7 +20,11 @@
   <ItemGroup>
         <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
-
+  <ItemGroup>
+    <!-- Include Directory.Packages.props in the NuGet package -->
+    <None Include="..\Directory.Packages.props" Pack="true" PackagePath="contentFiles/any/any/" />
+  </ItemGroup>
+  
   <ItemGroup>
     <!-- Notice no version numbers here - they come from Directory.Packages.props -->
     <PackageReference Include="Dapper" />

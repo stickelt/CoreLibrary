@@ -3,6 +3,8 @@
     <PackageVersion Include="Dapper" Version="2.1.28" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
     <PackageVersion Include="Polly" Version="8.2.1" />
-    <PackageVersion Include="Serilog" Version="3.1.1" />
+    <PackageVersion Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageVersion Include="itext7" Version="8.0.5" />
+    <PackageVersion Include="Syncfusion.Blazor.Grid" Version="27.1.57" />
   </ItemGroup>
 </Project>

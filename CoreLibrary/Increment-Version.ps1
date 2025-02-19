@@ -12,32 +12,38 @@ function Write-Log {
 
 Write-Log "Starting version increment script..."
 
-# Ensure .csproj file exists
+# Ensure .csproj file exists BEFORE modifying it
 if (-Not (Test-Path $csprojPath)) {
-    Write-Log "Error: Could not find $csprojPath"
+    Write-Log "ERROR: .csproj file NOT found!"
     exit 1
 }
 
-# Read the current .csproj file
+# Backup the original .csproj file BEFORE making changes
+$backupPath = "$csprojPath.bak"
+Copy-Item -Path $csprojPath -Destination $backupPath -Force
+Write-Log "Backup created at: $backupPath"
+
+# Read the .csproj XML
 [xml]$xml = Get-Content $csprojPath
 
-# Locate the <Version> tag inside <PropertyGroup>
-$versionNode = $xml.Project.PropertyGroup.Version
+# Select the first PropertyGroup node (where Version is located in your file)
+$propertyGroup = $xml.SelectSingleNode("//PropertyGroup")
+
+# Get the Version node
+$versionNode = $propertyGroup.SelectSingleNode("Version")
 
 if (-not $versionNode) {
-    Write-Log "Error: Could not find the <Version> tag inside <PropertyGroup> in $csprojPath"
+    Write-Log "ERROR: Could not find <Version> tag in $csprojPath!"
     exit 1
 }
 
-# Extract version text safely
-$versionText = [string]$versionNode
+# Extract version text
+$versionText = $versionNode.InnerXml
+Write-Log "Extracted version: '$versionText'"
 
-# Log extracted version for debugging
-Write-Log "Raw extracted version: '$versionText'"
-
-# Handle incorrect format
+# Ensure the version format is correct
 if (-not $versionText -match "^\d+\.\d+\.\d+$") {
-    Write-Log "Error: Version format is incorrect: '$versionText'"
+    Write-Log "ERROR: Invalid version format: '$versionText'"
     exit 1
 }
 
@@ -46,19 +52,20 @@ $versionParts = $versionText -split "\."
 $major = [int]$versionParts[0]
 $minor = [int]$versionParts[1]
 $patch = [int]$versionParts[2]
-
 $oldVersion = "$major.$minor.$patch"
 $patch += 1
 $newVersion = "$major.$minor.$patch"
 
-#  Correct Way to Modify XML Property
-$versionNode.Value = $newVersion
+# Update the version
+$versionNode.InnerXml = $newVersion
 
-#  Properly Save the XML File With Formatting
+# PROPERLY SAVE XML (fixes the "all in one line" issue)
 $settings = New-Object System.Xml.XmlWriterSettings
-$settings.Indent = $true                 # Keep indentation
-$settings.IndentChars = "    "            # Use spaces for indentation
-$settings.OmitXmlDeclaration = $false     # Keep XML declaration
+$settings.Indent = $true
+$settings.IndentChars = "    "  # Use spaces
+$settings.OmitXmlDeclaration = $true  # Changed to match your file
+$settings.NewLineOnAttributes = $true
+$settings.Encoding = [System.Text.Encoding]::UTF8
 
 $xmlWriter = [System.Xml.XmlWriter]::Create($csprojPath, $settings)
 $xml.Save($xmlWriter)

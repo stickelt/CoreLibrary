@@ -1,9 +1,0 @@
-<Project>
-  <PropertyGroup>
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-  </PropertyGroup>
-
-  <!-- Import the Directory.Packages.props from the NuGet package -->
-  <Import Project="$(MSBuildThisFileDirectory)Directory.Packages.props" 
-          Condition="Exists('$(MSBuildThisFileDirectory)Directory.Packages.props')" />
-</Project>

@@ -3,10 +3,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>    
-    
+
     <PackageId>Stickelt.CoreLibrary</PackageId>
-    <Version>1.0.4</Version>  <!-- Increment version to push a fresh package -->
+    <Version>1.0.4</Version>
+    <!-- Increment version to push a fresh package -->
     <Authors>Tom Stickel</Authors>
     <Company>Witcher</Company>
     <Description>A core library containing shared interfaces and base functionality for .NET applications</Description>
@@ -18,64 +18,56 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
-  <Import Project="$(SolutionDir)Directory.Packages.props" Condition="Exists('$(SolutionDir)Directory.Packages.props')" />
-
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="\" />
-
-    <!-- Ensure Directory.Packages.props is included as a build-time property, not content -->  
-    <!--<None Include="build/Directory.Packages.props" Pack="true" PackagePath="build/" />
-    <None Include="build/Stickelt.CoreLibrary.props" Pack="true" PackagePath="build/" />-->
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" />
-    <PackageReference Include="Google.Api.Gax.Grpc" />
-    <PackageReference Include="Google.Apis.Auth" />
-    <PackageReference Include="Google.Cloud.BigQuery.V2" />
-    <PackageReference Include="Google.Cloud.SecretManager.V1" />
-    <PackageReference Include="Google.Cloud.Storage.V1" />
-    <PackageReference Include="Grpc.Net.Client" />
-    <PackageReference Include="InterpolatedSql.Dapper" />
-    <PackageReference Include="itext7" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
-    <PackageReference Include="Microsoft.Data.SqlClient" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" />
-    <PackageReference Include="Microsoft.Extensions.Http" />
-    <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" />
-    <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders.TagHelpers" />
-    <PackageReference Include="Polly" />
-    <PackageReference Include="Serilog.AspNetCore" />
-    <PackageReference Include="Serilog.Enrichers.CorrelationId" />
-    <PackageReference Include="Serilog.Enrichers.Environment" />
-    <PackageReference Include="Serilog.Enrichers.Thread" />
-    <PackageReference Include="Serilog.Sinks.Async" />
-    <PackageReference Include="Serilog.Sinks.Debug" />
-    <PackageReference Include="Serilog.Sinks.Map" />
-    <PackageReference Include="Serilog.Sinks.Splunk" />
-    <PackageReference Include="Syncfusion.Blazor.Cards" />
-    <PackageReference Include="Syncfusion.Blazor.Core" />
-    <PackageReference Include="Syncfusion.Blazor.DataForm" />
-    <PackageReference Include="Syncfusion.Blazor.Grid" />
-    <PackageReference Include="Syncfusion.Blazor.Layouts" />
-    <PackageReference Include="Syncfusion.Blazor.MultiColumnComboBox" />
-    <PackageReference Include="Syncfusion.Blazor.Navigations" />
-    <PackageReference Include="Syncfusion.Blazor.Notifications" />
-    <PackageReference Include="Syncfusion.Blazor.Popups" />
-    <PackageReference Include="Syncfusion.Blazor.SfPdfViewer" />
-    <PackageReference Include="Syncfusion.Blazor.Spinner" />
-    <PackageReference Include="Syncfusion.Blazor.SplitButtons" />
-    <PackageReference Include="Syncfusion.Blazor.Themes" />
-    <PackageReference Include="Syncfusion.DocIO.Net.Core" />
-    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" />
-    <PackageReference Include="Syncfusion.Licensing" />
-    <PackageReference Include="Syncfusion.Pdf.Imaging.Net.Core" />
-    <PackageReference Include="System.Linq.Async" />
-    <PackageReference Include="System.Text.RegularExpressions" />
-    <PackageReference Include="ZiggyCreatures.FusionCache" />
+    <!-- Explicitly define versions for all dependencies -->
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="Google.Api.Gax.Grpc" Version="4.10.0" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.69.0" />
+    <PackageReference Include="Google.Cloud.BigQuery.V2" Version="3.10.0" />
+    <PackageReference Include="Google.Cloud.SecretManager.V1" Version="2.5.0" />
+    <PackageReference Include="Google.Cloud.Storage.V1" Version="4.10.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.67.0" />
+    <PackageReference Include="InterpolatedSql.Dapper" Version="2.3.0" />
+    <PackageReference Include="itext7" Version="8.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.10" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.1" />
+    <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.24.0" />
+    <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders.TagHelpers" Version="0.24.0" />
+    <PackageReference Include="Polly" Version="8.5.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
+    <PackageReference Include="Serilog.Enrichers.Thread" Version="4.0.0" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="2.1.0" />
+    <PackageReference Include="Serilog.Sinks.Debug" Version="3.0.0" />
+    <PackageReference Include="Serilog.Sinks.Map" Version="2.0.0" />
+    <PackageReference Include="Serilog.Sinks.Splunk" Version="5.1.0" />
+    <PackageReference Include="Syncfusion.Blazor.Cards" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Blazor.Core" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Blazor.DataForm" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Blazor.Grid" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Blazor.Layouts" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Blazor.MultiColumnComboBox" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Blazor.Navigations" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Blazor.Notifications" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Blazor.Popups" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Blazor.SfPdfViewer" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Blazor.Spinner" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Blazor.SplitButtons" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Blazor.Themes" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Licensing" Version="28.2.3" />
+    <PackageReference Include="Syncfusion.Pdf.Imaging.Net.Core" Version="28.2.3" />
+    <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+    <PackageReference Include="ZiggyCreatures.FusionCache" Version="2.0.0" />
   </ItemGroup>
-  
-  
- 
 </Project>

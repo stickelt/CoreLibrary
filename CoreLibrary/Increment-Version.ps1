@@ -6,7 +6,7 @@ $logFilePath = ".\VersionUpdate.log"
 function Write-Log {
     param ([string]$message)
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    "$timestamp - $message" | Out-File -Append -FilePath $logFilePath
+    "$timestamp - $message" | Out-File -Append -FilePath $logFilePath -Encoding ascii
     Write-Host $message
 }
 
@@ -24,9 +24,9 @@ Copy-Item -Path $csprojPath -Destination $backupPath -Force
 Write-Log "Backup created at: $backupPath"
 
 # Read the .csproj XML
-[xml]$xml = Get-Content $csprojPath
+[xml]$xml = Get-Content $csprojPath -Encoding utf8
 
-# Select the first PropertyGroup node (where Version is located in your file)
+# Select the first PropertyGroup node (where Version is located)
 $propertyGroup = $xml.SelectSingleNode("//PropertyGroup")
 
 # Get the Version node
@@ -37,8 +37,8 @@ if (-not $versionNode) {
     exit 1
 }
 
-# Extract version text
-$versionText = $versionNode.InnerXml
+# Extract version text safely
+$versionText = $versionNode.InnerText.Trim()
 Write-Log "Extracted version: '$versionText'"
 
 # Ensure the version format is correct
@@ -57,15 +57,15 @@ $patch += 1
 $newVersion = "$major.$minor.$patch"
 
 # Update the version
-$versionNode.InnerXml = $newVersion
+$versionNode.InnerText = $newVersion
 
-# PROPERLY SAVE XML (fixes the "all in one line" issue)
+# PROPERLY SAVE XML WITHOUT UNICODE
 $settings = New-Object System.Xml.XmlWriterSettings
 $settings.Indent = $true
-$settings.IndentChars = "    "  # Use spaces
-$settings.OmitXmlDeclaration = $true  # Changed to match your file
+$settings.IndentChars = "    "  # Use spaces for indentation
+$settings.OmitXmlDeclaration = $false  # Ensure XML declaration is kept
 $settings.NewLineOnAttributes = $true
-$settings.Encoding = [System.Text.Encoding]::UTF8
+$settings.Encoding = [System.Text.Encoding]::ASCII  # NO UNICODE
 
 $xmlWriter = [System.Xml.XmlWriter]::Create($csprojPath, $settings)
 $xml.Save($xmlWriter)

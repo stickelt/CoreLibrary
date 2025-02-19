@@ -19,7 +19,7 @@ if (-Not (Test-Path $csprojPath)) {
     exit 1
 }
 
-# Create a function to ensure proper XML structure
+# Function to ensure proper XML structure
 function New-VersionPropsXml {
     $newXml = New-Object System.Xml.XmlDocument
     $declaration = $newXml.CreateXmlDeclaration("1.0", "utf-8", $null)
@@ -51,7 +51,7 @@ if (-not $versionPropsXml.Project -or -not $versionPropsXml.Project.ItemGroup) {
     $versionPropsXml.Save($versionPropsPath)
 }
 
-# Get the ItemGroup node in Version.props using SelectSingleNode
+# Get the ItemGroup node in Version.props
 $versionPropsItemGroup = $versionPropsXml.SelectSingleNode("//ItemGroup")
 if (-not $versionPropsItemGroup) {
     Write-Log "ERROR: Could not find ItemGroup node in Version.props"
@@ -75,8 +75,8 @@ $versionPropsPackages = @{}
 $existingPackages = $versionPropsItemGroup.SelectNodes("PackageVersion")
 if ($existingPackages) {
     foreach ($packageNode in $existingPackages) {
-        $packageName = $packageNode.Include
-        $packageVersion = $packageNode.Version
+        $packageName = $packageNode.GetAttribute("Include")
+        $packageVersion = $packageNode.GetAttribute("Version")
         if ($packageName -and $packageVersion) {
             $versionPropsPackages[$packageName] = $packageVersion
         }
@@ -87,8 +87,9 @@ if ($existingPackages) {
 foreach ($package in $csprojPackages.Keys) {
     $existingNode = $versionPropsItemGroup.SelectSingleNode("PackageVersion[@Include='$package']")
     if ($existingNode) {
-        if ($existingNode.Version -ne $csprojPackages[$package]) {
-            Write-Log "Updating $package from $($existingNode.Version) to $($csprojPackages[$package])"
+        $currentVersion = $existingNode.GetAttribute("Version")
+        if ($currentVersion -ne $csprojPackages[$package]) {
+            Write-Log "Updating $package from $currentVersion to $($csprojPackages[$package])"
             $existingNode.SetAttribute("Version", $csprojPackages[$package])
         }
     } else {
@@ -102,9 +103,9 @@ foreach ($package in $csprojPackages.Keys) {
 
 # Delete packages from Version.props that no longer exist in .csproj
 $nodesToRemove = $versionPropsItemGroup.SelectNodes("PackageVersion") | 
-    Where-Object { -not $csprojPackages.ContainsKey($_.Include) }
+    Where-Object { -not $csprojPackages.ContainsKey($_.GetAttribute("Include")) }
 foreach ($node in $nodesToRemove) {
-    Write-Log "Deleting package: $($node.Include) (not found in .csproj)"
+    Write-Log "Deleting package: $($node.GetAttribute("Include")) (not found in .csproj)"
     $versionPropsItemGroup.RemoveChild($node) | Out-Null
 }
 

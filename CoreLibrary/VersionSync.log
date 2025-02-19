@@ -141,3 +141,53 @@
 2025-02-18 20:03:19 - Inserting new package: Syncfusion.Pdf.Imaging.Net.Core - 28.2.3
 2025-02-18 20:03:19 - Inserting new package: Syncfusion.DocIORenderer.Net.Core - 28.2.3
 2025-02-18 20:03:19 - Version.props sync completed successfully.
+2025-02-18 20:05:53 - Starting Version.props sync script...
+2025-02-18 20:05:53 - Version.props sync completed successfully.
+2025-02-18 20:06:11 - Starting Version.props sync script...
+2025-02-18 20:06:12 - ERROR: Invalid Version.props structure. Recreating...
+2025-02-18 20:06:12 - Inserting new package: Serilog.AspNetCore - 8.0.3
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.DataForm - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.Navigations - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Google.Cloud.SecretManager.V1 - 2.5.0
+2025-02-18 20:06:12 - Inserting new package: Serilog.Enrichers.Thread - 4.0.0
+2025-02-18 20:06:12 - Inserting new package: NetEscapades.AspNetCore.SecurityHeaders - 0.24.0
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.SplitButtons - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Microsoft.AspNetCore.Components.WebAssembly.Server - 8.0.10
+2025-02-18 20:06:12 - Inserting new package: Google.Cloud.Storage.V1 - 4.10.0
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.Notifications - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.Core - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: InterpolatedSql.Dapper - 2.3.0
+2025-02-18 20:06:12 - Inserting new package: Serilog.Sinks.Map - 2.0.0
+2025-02-18 20:06:12 - Inserting new package: Grpc.Net.Client - 2.67.0
+2025-02-18 20:06:12 - Inserting new package: Google.Api.Gax.Grpc - 4.10.0
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Licensing - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.Popups - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.DocIO.Net.Core - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: NetEscapades.AspNetCore.SecurityHeaders.TagHelpers - 0.24.0
+2025-02-18 20:06:12 - Inserting new package: itext7 - 8.0.5
+2025-02-18 20:06:12 - Inserting new package: Microsoft.AspNetCore.Authentication.OpenIdConnect - 8.0.10
+2025-02-18 20:06:12 - Inserting new package: Google.Apis.Auth - 1.69.0
+2025-02-18 20:06:12 - Inserting new package: Dapper - 2.1.35
+2025-02-18 20:06:12 - Inserting new package: Microsoft.Extensions.Http - 9.0.1
+2025-02-18 20:06:12 - Inserting new package: Serilog.Enrichers.Environment - 3.0.1
+2025-02-18 20:06:12 - Inserting new package: Microsoft.Extensions.Configuration - 9.0.1
+2025-02-18 20:06:12 - Inserting new package: Microsoft.Data.SqlClient - 6.0.1
+2025-02-18 20:06:12 - Inserting new package: ZiggyCreatures.FusionCache - 2.0.0
+2025-02-18 20:06:12 - Inserting new package: Serilog.Enrichers.CorrelationId - 3.0.1
+2025-02-18 20:06:12 - Inserting new package: Serilog.Sinks.Splunk - 5.1.0
+2025-02-18 20:06:12 - Inserting new package: Google.Cloud.BigQuery.V2 - 3.10.0
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.SfPdfViewer - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Serilog.Sinks.Async - 2.1.0
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.Layouts - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: System.Linq.Async - 6.0.1
+2025-02-18 20:06:12 - Inserting new package: System.Text.RegularExpressions - 4.3.1
+2025-02-18 20:06:12 - Inserting new package: Serilog.Sinks.Debug - 3.0.0
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.MultiColumnComboBox - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.Spinner - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Polly - 8.5.1
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.Grid - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.Cards - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Blazor.Themes - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.Pdf.Imaging.Net.Core - 28.2.3
+2025-02-18 20:06:12 - Inserting new package: Syncfusion.DocIORenderer.Net.Core - 28.2.3
+2025-02-18 20:06:12 - Version.props sync completed successfully.

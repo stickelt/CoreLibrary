@@ -1,140 +1,50 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Project>
-    <ItemGroup>
-        <PackageVersion
-            Include="Serilog.AspNetCore"
-            Version="8.0.3" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.DataForm"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.Navigations"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Google.Cloud.SecretManager.V1"
-            Version="2.5.0" />
-        <PackageVersion
-            Include="Serilog.Enrichers.Thread"
-            Version="4.0.0" />
-        <PackageVersion
-            Include="NetEscapades.AspNetCore.SecurityHeaders"
-            Version="0.24.0" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.SplitButtons"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Microsoft.AspNetCore.Components.WebAssembly.Server"
-            Version="8.0.10" />
-        <PackageVersion
-            Include="Google.Cloud.Storage.V1"
-            Version="4.10.0" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.Notifications"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.Core"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="InterpolatedSql.Dapper"
-            Version="2.3.0" />
-        <PackageVersion
-            Include="Serilog.Sinks.Map"
-            Version="2.0.0" />
-        <PackageVersion
-            Include="Grpc.Net.Client"
-            Version="2.67.0" />
-        <PackageVersion
-            Include="Google.Api.Gax.Grpc"
-            Version="4.10.0" />
-        <PackageVersion
-            Include="Syncfusion.Licensing"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.Popups"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Syncfusion.DocIO.Net.Core"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="NetEscapades.AspNetCore.SecurityHeaders.TagHelpers"
-            Version="0.24.0" />
-        <PackageVersion
-            Include="itext7"
-            Version="8.0.5" />
-        <PackageVersion
-            Include="Microsoft.AspNetCore.Authentication.OpenIdConnect"
-            Version="8.0.10" />
-        <PackageVersion
-            Include="Google.Apis.Auth"
-            Version="1.69.0" />
-        <PackageVersion
-            Include="Dapper"
-            Version="2.1.35" />
-        <PackageVersion
-            Include="Microsoft.Extensions.Http"
-            Version="9.0.1" />
-        <PackageVersion
-            Include="Serilog.Enrichers.Environment"
-            Version="3.0.1" />
-        <PackageVersion
-            Include="Microsoft.Extensions.Configuration"
-            Version="9.0.1" />
-        <PackageVersion
-            Include="Microsoft.Data.SqlClient"
-            Version="6.0.1" />
-        <PackageVersion
-            Include="ZiggyCreatures.FusionCache"
-            Version="2.0.0" />
-        <PackageVersion
-            Include="Serilog.Enrichers.CorrelationId"
-            Version="3.0.1" />
-        <PackageVersion
-            Include="Serilog.Sinks.Splunk"
-            Version="5.1.0" />
-        <PackageVersion
-            Include="Google.Cloud.BigQuery.V2"
-            Version="3.10.0" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.SfPdfViewer"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Serilog.Sinks.Async"
-            Version="2.1.0" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.Layouts"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="System.Linq.Async"
-            Version="6.0.1" />
-        <PackageVersion
-            Include="System.Text.RegularExpressions"
-            Version="4.3.1" />
-        <PackageVersion
-            Include="Serilog.Sinks.Debug"
-            Version="3.0.0" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.MultiColumnComboBox"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.Spinner"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Polly"
-            Version="8.5.1" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.Grid"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.Cards"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Syncfusion.Blazor.Themes"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Syncfusion.Pdf.Imaging.Net.Core"
-            Version="28.2.3" />
-        <PackageVersion
-            Include="Syncfusion.DocIORenderer.Net.Core"
-            Version="28.2.3" />
-    </ItemGroup>
+    <PropertyGroup>
+        <Dapper>2.1.35</Dapper>
+        <GoogleApiGaxGrpc>4.10.0</GoogleApiGaxGrpc>
+        <GoogleApisAuth>1.69.0</GoogleApisAuth>
+        <GoogleCloudBigQueryV2>3.10.0</GoogleCloudBigQueryV2>
+        <GoogleCloudSecretManagerV1>2.5.0</GoogleCloudSecretManagerV1>
+        <GoogleCloudStorageV1>4.10.0</GoogleCloudStorageV1>
+        <GrpcNetClient>2.67.0</GrpcNetClient>
+        <InterpolatedSqlDapper>2.3.0</InterpolatedSqlDapper>
+        <itext7>8.0.5</itext7>
+        <MicrosoftAspNetCoreAuthenticationOpenIdConnect>8.0.10</MicrosoftAspNetCoreAuthenticationOpenIdConnect>
+        <MicrosoftAspNetCoreComponentsWebAssemblyServer>8.0.10</MicrosoftAspNetCoreComponentsWebAssemblyServer>
+        <MicrosoftDataSqlClient>6.0.1</MicrosoftDataSqlClient>
+        <MicrosoftExtensionsConfiguration>9.0.1</MicrosoftExtensionsConfiguration>
+        <MicrosoftExtensionsHttp>9.0.1</MicrosoftExtensionsHttp>
+        <NetEscapadesAspNetCoreSecurityHeaders>0.24.0</NetEscapadesAspNetCoreSecurityHeaders>
+        <NetEscapadesAspNetCoreSecurityHeadersTagHelpers>0.24.0</NetEscapadesAspNetCoreSecurityHeadersTagHelpers>
+        <Polly>8.5.1</Polly>
+        <SerilogAspNetCore>8.0.3</SerilogAspNetCore>
+        <SerilogEnrichersCorrelationId>3.0.1</SerilogEnrichersCorrelationId>
+        <SerilogEnrichersEnvironment>3.0.1</SerilogEnrichersEnvironment>
+        <SerilogEnrichersThread>4.0.0</SerilogEnrichersThread>
+        <SerilogSinksAsync>2.1.0</SerilogSinksAsync>
+        <SerilogSinksDebug>3.0.0</SerilogSinksDebug>
+        <SerilogSinksMap>2.0.0</SerilogSinksMap>
+        <SerilogSinksSplunk>5.1.0</SerilogSinksSplunk>
+        <SyncfusionBlazorCards>28.2.3</SyncfusionBlazorCards>
+        <SyncfusionBlazorCore>28.2.3</SyncfusionBlazorCore>
+        <SyncfusionBlazorDataForm>28.2.3</SyncfusionBlazorDataForm>
+        <SyncfusionBlazorGrid>28.2.3</SyncfusionBlazorGrid>
+        <SyncfusionBlazorLayouts>28.2.3</SyncfusionBlazorLayouts>
+        <SyncfusionBlazorMultiColumnComboBox>28.2.3</SyncfusionBlazorMultiColumnComboBox>
+        <SyncfusionBlazorNavigations>28.2.3</SyncfusionBlazorNavigations>
+        <SyncfusionBlazorNotifications>28.2.3</SyncfusionBlazorNotifications>
+        <SyncfusionBlazorPopups>28.2.3</SyncfusionBlazorPopups>
+        <SyncfusionBlazorSfPdfViewer>28.2.3</SyncfusionBlazorSfPdfViewer>
+        <SyncfusionBlazorSpinner>28.2.3</SyncfusionBlazorSpinner>
+        <SyncfusionBlazorSplitButtons>28.2.3</SyncfusionBlazorSplitButtons>
+        <SyncfusionBlazorThemes>28.2.3</SyncfusionBlazorThemes>
+        <SyncfusionDocIONetCore>28.2.3</SyncfusionDocIONetCore>
+        <SyncfusionDocIORendererNetCore>28.2.3</SyncfusionDocIORendererNetCore>
+        <SyncfusionLicensing>28.2.3</SyncfusionLicensing>
+        <SyncfusionPdfImagingNetCore>28.2.3</SyncfusionPdfImagingNetCore>
+        <SystemLinqAsync>6.0.1</SystemLinqAsync>
+        <SystemTextRegularExpressions>4.3.1</SystemTextRegularExpressions>
+        <ZiggyCreaturesFusionCache>2.0.0</ZiggyCreaturesFusionCache>
+    </PropertyGroup>
 </Project>

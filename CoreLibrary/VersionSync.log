@@ -191,3 +191,287 @@
 2025-02-18 20:06:12 - Inserting new package: Syncfusion.Pdf.Imaging.Net.Core - 28.2.3
 2025-02-18 20:06:12 - Inserting new package: Syncfusion.DocIORenderer.Net.Core - 28.2.3
 2025-02-18 20:06:12 - Version.props sync completed successfully.
+2025-02-18 20:21:06 - Starting Version.props sync script...
+2025-02-18 20:21:06 - ERROR: Invalid Version.props structure. Recreating...
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorLayouts - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorGrid - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: GrpcNetClient - 2.67.0
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorNavigations - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: GoogleCloudStorageV1 - 4.10.0
+2025-02-18 20:21:06 - Inserting new package: GoogleApiGaxGrpc - 4.10.0
+2025-02-18 20:21:06 - Inserting new package: SerilogSinksAsync - 2.1.0
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorCore - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorNotifications - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: SerilogAspNetCore - 8.0.3
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorSplitButtons - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: SerilogSinksMap - 2.0.0
+2025-02-18 20:21:06 - Inserting new package: ZiggyCreaturesFusionCache - 2.0.0
+2025-02-18 20:21:06 - Inserting new package: SyncfusionPdfImagingNetCore - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorMultiColumnComboBox - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorDataForm - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorPopups - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: SyncfusionLicensing - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: SerilogEnrichersCorrelationId - 3.0.1
+2025-02-18 20:21:06 - Inserting new package: NetEscapadesAspNetCoreSecurityHeadersTagHelpers - 0.24.0
+2025-02-18 20:21:06 - Inserting new package: SerilogEnrichersEnvironment - 3.0.1
+2025-02-18 20:21:06 - Inserting new package: MicrosoftExtensionsConfiguration - 9.0.1
+2025-02-18 20:21:06 - Inserting new package: SyncfusionDocIORendererNetCore - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: SerilogSinksSplunk - 5.1.0
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorCards - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: NetEscapadesAspNetCoreSecurityHeaders - 0.24.0
+2025-02-18 20:21:06 - Inserting new package: itext7 - 8.0.5
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorSpinner - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: Dapper - 2.1.35
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorThemes - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: MicrosoftExtensionsHttp - 9.0.1
+2025-02-18 20:21:06 - Inserting new package: GoogleApisAuth - 1.69.0
+2025-02-18 20:21:06 - Inserting new package: InterpolatedSqlDapper - 2.3.0
+2025-02-18 20:21:06 - Inserting new package: SerilogEnrichersThread - 4.0.0
+2025-02-18 20:21:06 - Inserting new package: MicrosoftAspNetCoreAuthenticationOpenIdConnect - 8.0.10
+2025-02-18 20:21:06 - Inserting new package: SerilogSinksDebug - 3.0.0
+2025-02-18 20:21:06 - Inserting new package: SystemTextRegularExpressions - 4.3.1
+2025-02-18 20:21:06 - Inserting new package: MicrosoftDataSqlClient - 6.0.1
+2025-02-18 20:21:06 - Inserting new package: GoogleCloudBigQueryV2 - 3.10.0
+2025-02-18 20:21:06 - Inserting new package: Polly - 8.5.1
+2025-02-18 20:21:06 - Inserting new package: MicrosoftAspNetCoreComponentsWebAssemblyServer - 8.0.10
+2025-02-18 20:21:06 - Inserting new package: SystemLinqAsync - 6.0.1
+2025-02-18 20:21:06 - Inserting new package: SyncfusionDocIONetCore - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: SyncfusionBlazorSfPdfViewer - 28.2.3
+2025-02-18 20:21:06 - Inserting new package: GoogleCloudSecretManagerV1 - 2.5.0
+2025-02-18 20:21:06 - Version.props sync completed successfully.
+2025-02-18 20:39:49 - Starting Version.props sync script...
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorLayouts - 28.2.3
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorGrid - 28.2.3
+2025-02-18 20:39:49 - Syncing package: GrpcNetClient - 2.67.0
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorNavigations - 28.2.3
+2025-02-18 20:39:49 - Syncing package: GoogleCloudStorageV1 - 4.10.0
+2025-02-18 20:39:49 - Syncing package: GoogleApiGaxGrpc - 4.10.0
+2025-02-18 20:39:49 - Syncing package: SerilogSinksAsync - 2.1.0
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorCore - 28.2.3
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorNotifications - 28.2.3
+2025-02-18 20:39:49 - Syncing package: SerilogAspNetCore - 8.0.3
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorSplitButtons - 28.2.3
+2025-02-18 20:39:49 - Syncing package: SerilogSinksMap - 2.0.0
+2025-02-18 20:39:49 - Syncing package: ZiggyCreaturesFusionCache - 2.0.0
+2025-02-18 20:39:49 - Syncing package: SyncfusionPdfImagingNetCore - 28.2.3
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorMultiColumnComboBox - 28.2.3
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorDataForm - 28.2.3
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorPopups - 28.2.3
+2025-02-18 20:39:49 - Syncing package: SyncfusionLicensing - 28.2.3
+2025-02-18 20:39:49 - Syncing package: SerilogEnrichersCorrelationId - 3.0.1
+2025-02-18 20:39:49 - Syncing package: NetEscapadesAspNetCoreSecurityHeadersTagHelpers - 0.24.0
+2025-02-18 20:39:49 - Syncing package: SerilogEnrichersEnvironment - 3.0.1
+2025-02-18 20:39:49 - Syncing package: MicrosoftExtensionsConfiguration - 9.0.1
+2025-02-18 20:39:49 - Syncing package: SyncfusionDocIORendererNetCore - 28.2.3
+2025-02-18 20:39:49 - Syncing package: SerilogSinksSplunk - 5.1.0
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorCards - 28.2.3
+2025-02-18 20:39:49 - Syncing package: NetEscapadesAspNetCoreSecurityHeaders - 0.24.0
+2025-02-18 20:39:49 - Syncing package: itext7 - 8.0.5
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorSpinner - 28.2.3
+2025-02-18 20:39:49 - Syncing package: Dapper - 2.1.35
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorThemes - 28.2.3
+2025-02-18 20:39:49 - Syncing package: MicrosoftExtensionsHttp - 9.0.1
+2025-02-18 20:39:49 - Syncing package: GoogleApisAuth - 1.69.0
+2025-02-18 20:39:49 - Syncing package: InterpolatedSqlDapper - 2.3.0
+2025-02-18 20:39:49 - Syncing package: SerilogEnrichersThread - 4.0.0
+2025-02-18 20:39:49 - Syncing package: MicrosoftAspNetCoreAuthenticationOpenIdConnect - 8.0.10
+2025-02-18 20:39:49 - Syncing package: SerilogSinksDebug - 3.0.0
+2025-02-18 20:39:49 - Syncing package: SystemTextRegularExpressions - 4.3.1
+2025-02-18 20:39:49 - Syncing package: MicrosoftDataSqlClient - 6.0.1
+2025-02-18 20:39:49 - Syncing package: GoogleCloudBigQueryV2 - 3.10.0
+2025-02-18 20:39:49 - Syncing package: Polly - 8.5.1
+2025-02-18 20:39:49 - Syncing package: MicrosoftAspNetCoreComponentsWebAssemblyServer - 8.0.10
+2025-02-18 20:39:49 - Syncing package: SystemLinqAsync - 6.0.1
+2025-02-18 20:39:49 - Syncing package: SyncfusionDocIONetCore - 28.2.3
+2025-02-18 20:39:49 - Syncing package: SyncfusionBlazorSfPdfViewer - 28.2.3
+2025-02-18 20:39:49 - Syncing package: GoogleCloudSecretManagerV1 - 2.5.0
+2025-02-18 20:39:49 - Version.props sync completed successfully, preserving order from .csproj.
+2025-02-18 20:40:31 - Starting Version.props sync script...
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorLayouts - 28.2.3
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorGrid - 28.2.3
+2025-02-18 20:40:31 - Syncing package: GrpcNetClient - 2.67.0
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorNavigations - 28.2.3
+2025-02-18 20:40:31 - Syncing package: GoogleCloudStorageV1 - 4.10.0
+2025-02-18 20:40:31 - Syncing package: GoogleApiGaxGrpc - 4.10.0
+2025-02-18 20:40:31 - Syncing package: SerilogSinksAsync - 2.1.0
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorCore - 28.2.3
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorNotifications - 28.2.3
+2025-02-18 20:40:31 - Syncing package: SerilogAspNetCore - 8.0.3
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorSplitButtons - 28.2.3
+2025-02-18 20:40:31 - Syncing package: SerilogSinksMap - 2.0.0
+2025-02-18 20:40:31 - Syncing package: ZiggyCreaturesFusionCache - 2.0.0
+2025-02-18 20:40:31 - Syncing package: SyncfusionPdfImagingNetCore - 28.2.3
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorMultiColumnComboBox - 28.2.3
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorDataForm - 28.2.3
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorPopups - 28.2.3
+2025-02-18 20:40:31 - Syncing package: SyncfusionLicensing - 28.2.3
+2025-02-18 20:40:31 - Syncing package: SerilogEnrichersCorrelationId - 3.0.1
+2025-02-18 20:40:31 - Syncing package: NetEscapadesAspNetCoreSecurityHeadersTagHelpers - 0.24.0
+2025-02-18 20:40:31 - Syncing package: SerilogEnrichersEnvironment - 3.0.1
+2025-02-18 20:40:31 - Syncing package: MicrosoftExtensionsConfiguration - 9.0.1
+2025-02-18 20:40:31 - Syncing package: SyncfusionDocIORendererNetCore - 28.2.3
+2025-02-18 20:40:31 - Syncing package: SerilogSinksSplunk - 5.1.0
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorCards - 28.2.3
+2025-02-18 20:40:31 - Syncing package: NetEscapadesAspNetCoreSecurityHeaders - 0.24.0
+2025-02-18 20:40:31 - Syncing package: itext7 - 8.0.5
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorSpinner - 28.2.3
+2025-02-18 20:40:31 - Syncing package: Dapper - 2.1.35
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorThemes - 28.2.3
+2025-02-18 20:40:31 - Syncing package: MicrosoftExtensionsHttp - 9.0.1
+2025-02-18 20:40:31 - Syncing package: GoogleApisAuth - 1.69.0
+2025-02-18 20:40:31 - Syncing package: InterpolatedSqlDapper - 2.3.0
+2025-02-18 20:40:31 - Syncing package: SerilogEnrichersThread - 4.0.0
+2025-02-18 20:40:31 - Syncing package: MicrosoftAspNetCoreAuthenticationOpenIdConnect - 8.0.10
+2025-02-18 20:40:31 - Syncing package: SerilogSinksDebug - 3.0.0
+2025-02-18 20:40:31 - Syncing package: SystemTextRegularExpressions - 4.3.1
+2025-02-18 20:40:31 - Syncing package: MicrosoftDataSqlClient - 6.0.1
+2025-02-18 20:40:31 - Syncing package: GoogleCloudBigQueryV2 - 3.10.0
+2025-02-18 20:40:31 - Syncing package: Polly - 8.5.1
+2025-02-18 20:40:31 - Syncing package: MicrosoftAspNetCoreComponentsWebAssemblyServer - 8.0.10
+2025-02-18 20:40:31 - Syncing package: SystemLinqAsync - 6.0.1
+2025-02-18 20:40:31 - Syncing package: SyncfusionDocIONetCore - 28.2.3
+2025-02-18 20:40:31 - Syncing package: SyncfusionBlazorSfPdfViewer - 28.2.3
+2025-02-18 20:40:31 - Syncing package: GoogleCloudSecretManagerV1 - 2.5.0
+2025-02-18 20:40:31 - Version.props sync completed successfully, preserving order from .csproj.
+2025-02-18 20:44:53 - Starting Version.props sync script...
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorLayouts - 28.2.3
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorGrid - 28.2.3
+2025-02-18 20:44:53 - Syncing package: GrpcNetClient - 2.67.0
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorNavigations - 28.2.3
+2025-02-18 20:44:53 - Syncing package: GoogleCloudStorageV1 - 4.10.0
+2025-02-18 20:44:53 - Syncing package: GoogleApiGaxGrpc - 4.10.0
+2025-02-18 20:44:53 - Syncing package: SerilogSinksAsync - 2.1.0
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorCore - 28.2.3
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorNotifications - 28.2.3
+2025-02-18 20:44:53 - Syncing package: SerilogAspNetCore - 8.0.3
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorSplitButtons - 28.2.3
+2025-02-18 20:44:53 - Syncing package: SerilogSinksMap - 2.0.0
+2025-02-18 20:44:53 - Syncing package: ZiggyCreaturesFusionCache - 2.0.0
+2025-02-18 20:44:53 - Syncing package: SyncfusionPdfImagingNetCore - 28.2.3
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorMultiColumnComboBox - 28.2.3
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorDataForm - 28.2.3
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorPopups - 28.2.3
+2025-02-18 20:44:53 - Syncing package: SyncfusionLicensing - 28.2.3
+2025-02-18 20:44:53 - Syncing package: SerilogEnrichersCorrelationId - 3.0.1
+2025-02-18 20:44:53 - Syncing package: NetEscapadesAspNetCoreSecurityHeadersTagHelpers - 0.24.0
+2025-02-18 20:44:53 - Syncing package: SerilogEnrichersEnvironment - 3.0.1
+2025-02-18 20:44:53 - Syncing package: MicrosoftExtensionsConfiguration - 9.0.1
+2025-02-18 20:44:53 - Syncing package: SyncfusionDocIORendererNetCore - 28.2.3
+2025-02-18 20:44:53 - Syncing package: SerilogSinksSplunk - 5.1.0
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorCards - 28.2.3
+2025-02-18 20:44:53 - Syncing package: NetEscapadesAspNetCoreSecurityHeaders - 0.24.0
+2025-02-18 20:44:53 - Syncing package: itext7 - 8.0.5
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorSpinner - 28.2.3
+2025-02-18 20:44:53 - Syncing package: Dapper - 2.1.35
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorThemes - 28.2.3
+2025-02-18 20:44:53 - Syncing package: MicrosoftExtensionsHttp - 9.0.1
+2025-02-18 20:44:53 - Syncing package: GoogleApisAuth - 1.69.0
+2025-02-18 20:44:53 - Syncing package: InterpolatedSqlDapper - 2.3.0
+2025-02-18 20:44:53 - Syncing package: SerilogEnrichersThread - 4.0.0
+2025-02-18 20:44:53 - Syncing package: MicrosoftAspNetCoreAuthenticationOpenIdConnect - 8.0.10
+2025-02-18 20:44:53 - Syncing package: SerilogSinksDebug - 3.0.0
+2025-02-18 20:44:53 - Syncing package: SystemTextRegularExpressions - 4.3.1
+2025-02-18 20:44:53 - Syncing package: MicrosoftDataSqlClient - 6.0.1
+2025-02-18 20:44:53 - Syncing package: GoogleCloudBigQueryV2 - 3.10.0
+2025-02-18 20:44:53 - Syncing package: Polly - 8.5.1
+2025-02-18 20:44:53 - Syncing package: MicrosoftAspNetCoreComponentsWebAssemblyServer - 8.0.10
+2025-02-18 20:44:53 - Syncing package: SystemLinqAsync - 6.0.1
+2025-02-18 20:44:53 - Syncing package: SyncfusionDocIONetCore - 28.2.3
+2025-02-18 20:44:53 - Syncing package: SyncfusionBlazorSfPdfViewer - 28.2.3
+2025-02-18 20:44:53 - Syncing package: GoogleCloudSecretManagerV1 - 2.5.0
+2025-02-18 20:44:53 - Version.props sync completed successfully, preserving order from .csproj.
+2025-02-18 20:45:10 - Starting Version.props sync script...
+2025-02-18 20:45:10 - ERROR: Invalid Version.props structure. Recreating...
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorLayouts - 28.2.3
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorGrid - 28.2.3
+2025-02-18 20:45:10 - Syncing package: GrpcNetClient - 2.67.0
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorNavigations - 28.2.3
+2025-02-18 20:45:10 - Syncing package: GoogleCloudStorageV1 - 4.10.0
+2025-02-18 20:45:10 - Syncing package: GoogleApiGaxGrpc - 4.10.0
+2025-02-18 20:45:10 - Syncing package: SerilogSinksAsync - 2.1.0
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorCore - 28.2.3
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorNotifications - 28.2.3
+2025-02-18 20:45:10 - Syncing package: SerilogAspNetCore - 8.0.3
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorSplitButtons - 28.2.3
+2025-02-18 20:45:10 - Syncing package: SerilogSinksMap - 2.0.0
+2025-02-18 20:45:10 - Syncing package: ZiggyCreaturesFusionCache - 2.0.0
+2025-02-18 20:45:10 - Syncing package: SyncfusionPdfImagingNetCore - 28.2.3
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorMultiColumnComboBox - 28.2.3
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorDataForm - 28.2.3
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorPopups - 28.2.3
+2025-02-18 20:45:10 - Syncing package: SyncfusionLicensing - 28.2.3
+2025-02-18 20:45:10 - Syncing package: SerilogEnrichersCorrelationId - 3.0.1
+2025-02-18 20:45:10 - Syncing package: NetEscapadesAspNetCoreSecurityHeadersTagHelpers - 0.24.0
+2025-02-18 20:45:10 - Syncing package: SerilogEnrichersEnvironment - 3.0.1
+2025-02-18 20:45:10 - Syncing package: MicrosoftExtensionsConfiguration - 9.0.1
+2025-02-18 20:45:10 - Syncing package: SyncfusionDocIORendererNetCore - 28.2.3
+2025-02-18 20:45:10 - Syncing package: SerilogSinksSplunk - 5.1.0
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorCards - 28.2.3
+2025-02-18 20:45:10 - Syncing package: NetEscapadesAspNetCoreSecurityHeaders - 0.24.0
+2025-02-18 20:45:10 - Syncing package: itext7 - 8.0.5
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorSpinner - 28.2.3
+2025-02-18 20:45:10 - Syncing package: Dapper - 2.1.35
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorThemes - 28.2.3
+2025-02-18 20:45:10 - Syncing package: MicrosoftExtensionsHttp - 9.0.1
+2025-02-18 20:45:10 - Syncing package: GoogleApisAuth - 1.69.0
+2025-02-18 20:45:10 - Syncing package: InterpolatedSqlDapper - 2.3.0
+2025-02-18 20:45:10 - Syncing package: SerilogEnrichersThread - 4.0.0
+2025-02-18 20:45:10 - Syncing package: MicrosoftAspNetCoreAuthenticationOpenIdConnect - 8.0.10
+2025-02-18 20:45:10 - Syncing package: SerilogSinksDebug - 3.0.0
+2025-02-18 20:45:10 - Syncing package: SystemTextRegularExpressions - 4.3.1
+2025-02-18 20:45:10 - Syncing package: MicrosoftDataSqlClient - 6.0.1
+2025-02-18 20:45:10 - Syncing package: GoogleCloudBigQueryV2 - 3.10.0
+2025-02-18 20:45:10 - Syncing package: Polly - 8.5.1
+2025-02-18 20:45:10 - Syncing package: MicrosoftAspNetCoreComponentsWebAssemblyServer - 8.0.10
+2025-02-18 20:45:10 - Syncing package: SystemLinqAsync - 6.0.1
+2025-02-18 20:45:10 - Syncing package: SyncfusionDocIONetCore - 28.2.3
+2025-02-18 20:45:10 - Syncing package: SyncfusionBlazorSfPdfViewer - 28.2.3
+2025-02-18 20:45:10 - Syncing package: GoogleCloudSecretManagerV1 - 2.5.0
+2025-02-18 20:45:10 - Version.props sync completed successfully, preserving order from .csproj.
+2025-02-18 20:47:31 - Starting Version.props sync script...
+2025-02-18 20:47:31 - Syncing package: Dapper - 2.1.35
+2025-02-18 20:47:31 - Syncing package: GoogleApiGaxGrpc - 4.10.0
+2025-02-18 20:47:31 - Syncing package: GoogleApisAuth - 1.69.0
+2025-02-18 20:47:31 - Syncing package: GoogleCloudBigQueryV2 - 3.10.0
+2025-02-18 20:47:31 - Syncing package: GoogleCloudSecretManagerV1 - 2.5.0
+2025-02-18 20:47:31 - Syncing package: GoogleCloudStorageV1 - 4.10.0
+2025-02-18 20:47:31 - Syncing package: GrpcNetClient - 2.67.0
+2025-02-18 20:47:31 - Syncing package: InterpolatedSqlDapper - 2.3.0
+2025-02-18 20:47:31 - Syncing package: itext7 - 8.0.5
+2025-02-18 20:47:31 - Syncing package: MicrosoftAspNetCoreAuthenticationOpenIdConnect - 8.0.10
+2025-02-18 20:47:31 - Syncing package: MicrosoftAspNetCoreComponentsWebAssemblyServer - 8.0.10
+2025-02-18 20:47:31 - Syncing package: MicrosoftDataSqlClient - 6.0.1
+2025-02-18 20:47:31 - Syncing package: MicrosoftExtensionsConfiguration - 9.0.1
+2025-02-18 20:47:31 - Syncing package: MicrosoftExtensionsHttp - 9.0.1
+2025-02-18 20:47:31 - Syncing package: NetEscapadesAspNetCoreSecurityHeaders - 0.24.0
+2025-02-18 20:47:31 - Syncing package: NetEscapadesAspNetCoreSecurityHeadersTagHelpers - 0.24.0
+2025-02-18 20:47:31 - Syncing package: Polly - 8.5.1
+2025-02-18 20:47:31 - Syncing package: SerilogAspNetCore - 8.0.3
+2025-02-18 20:47:31 - Syncing package: SerilogEnrichersCorrelationId - 3.0.1
+2025-02-18 20:47:31 - Syncing package: SerilogEnrichersEnvironment - 3.0.1
+2025-02-18 20:47:31 - Syncing package: SerilogEnrichersThread - 4.0.0
+2025-02-18 20:47:31 - Syncing package: SerilogSinksAsync - 2.1.0
+2025-02-18 20:47:31 - Syncing package: SerilogSinksDebug - 3.0.0
+2025-02-18 20:47:31 - Syncing package: SerilogSinksMap - 2.0.0
+2025-02-18 20:47:31 - Syncing package: SerilogSinksSplunk - 5.1.0
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorCards - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorCore - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorDataForm - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorGrid - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorLayouts - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorMultiColumnComboBox - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorNavigations - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorNotifications - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorPopups - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorSfPdfViewer - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorSpinner - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorSplitButtons - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionBlazorThemes - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionDocIONetCore - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionDocIORendererNetCore - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionLicensing - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SyncfusionPdfImagingNetCore - 28.2.3
+2025-02-18 20:47:31 - Syncing package: SystemLinqAsync - 6.0.1
+2025-02-18 20:47:31 - Syncing package: SystemTextRegularExpressions - 4.3.1
+2025-02-18 20:47:31 - Syncing package: ZiggyCreaturesFusionCache - 2.0.0
+2025-02-18 20:47:31 - Version.props sync completed successfully, preserving order from .csproj.

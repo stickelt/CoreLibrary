@@ -14,24 +14,34 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
-    
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Install PowerShell (Required for Increment-Version.ps1)
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y powershell
+        pwsh --version  # Verify PowerShell is installed
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.0.x
-        source-url: https://nuget.pkg.github.com/\${{ github.repository_owner }}/index.json
+        source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
       env:
-        NUGET_AUTH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
-    
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Run Increment-Version.ps1 (Ensures NuGet version updates)
+      run: pwsh -File ./CoreLibrary/Increment-Version.ps1
+
     - name: Restore dependencies
       run: dotnet restore
-    
+
     - name: Build
       run: dotnet build --no-restore --configuration Release
-    
-    - name: Pack
+
+    - name: Pack NuGet Package
       run: dotnet pack --no-build --configuration Release CoreLibrary/CoreLibrary.csproj
-    
+
     - name: Push to GitHub Packages
-      run: dotnet nuget push "./CoreLibrary/bin/Release/*.nupkg" --api-key \${{ secrets.GITHUB_TOKEN }}
+      run: dotnet nuget push "./CoreLibrary/bin/Release/*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }}

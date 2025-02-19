@@ -1,6 +1,7 @@
-# Define paths
-$csprojPath = ".\CoreLibrary.csproj"
-$logFilePath = ".\VersionUpdate.log"
+# Define paths using script directory (ensures correct location)
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$csprojPath = Join-Path $scriptDir "CoreLibrary.csproj"
+$logFilePath = Join-Path $scriptDir "VersionUpdate.log"
 
 # Create log entry function
 function Write-Log {
@@ -11,10 +12,11 @@ function Write-Log {
 }
 
 Write-Log "Starting version increment script..."
+Write-Log "Checking for .csproj file at: $csprojPath"
 
 # Ensure .csproj file exists BEFORE modifying it
 if (-Not (Test-Path $csprojPath)) {
-    Write-Log "ERROR: .csproj file NOT found!"
+    Write-Log "ERROR: .csproj file NOT found at $csprojPath!"
     exit 1
 }
 

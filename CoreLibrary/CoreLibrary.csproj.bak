@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.9</Version>
+        <Version>1.0.10</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -204,11 +204,11 @@
         <Exec
             Command="$(PowershellCmd) -ExecutionPolicy Bypass -File &quot;$(ProjectDir)Sync-VersionProps.ps1&quot;" />
     </Target>
-
-  <PropertyGroup>
-    <!-- Detect platform and use appropriate PowerShell command -->
-    <PowershellCmd Condition=" '$(OS)' == 'Windows_NT' ">powershell</PowershellCmd>
-    <PowershellCmd Condition=" '$(OS)' != 'Windows_NT' ">pwsh</PowershellCmd>
-  </PropertyGroup>
-  
+    <PropertyGroup>
+        <!-- Detect platform and use appropriate PowerShell command -->
+        <PowershellCmd
+            Condition=" '$(OS)' == 'Windows_NT' ">powershell</PowershellCmd>
+        <PowershellCmd
+            Condition=" '$(OS)' != 'Windows_NT' ">pwsh</PowershellCmd>
+    </PropertyGroup>
 </Project>

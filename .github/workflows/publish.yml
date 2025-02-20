@@ -12,24 +12,21 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Install PowerShell (Required for Increment-Version.ps1)
+    - name: Install PowerShell Core on Linux (if missing)
       run: |
-        sudo apt-get update
-        sudo apt-get install -y powershell
-        pwsh --version  # Verify PowerShell is installed
+        if ! command -v pwsh &> /dev/null; then
+          sudo apt-get update
+          sudo apt-get install -y powershell
+        fi
+        pwsh --version  # Verify installation
 
     - name: Debugging - List Files Before Running Script
       run: ls -la
-
-    - name: Run Increment-Version.ps1 (Ensure Correct Directory)
-      run: |
-        cd CoreLibrary
-        pwsh -File Increment-Version.ps1
 
     - name: Restore dependencies
       run: dotnet restore
@@ -41,4 +38,8 @@ jobs:
       run: dotnet pack --no-build --configuration Release CoreLibrary/CoreLibrary.csproj
 
     - name: Push to GitHub Packages
-      run: dotnet nuget push "./CoreLibrary/bin/Release/*.nupkg" --api-key "${{ secrets.GITHUB_TOKEN }}"
+      run: |
+        dotnet nuget push "./CoreLibrary/bin/Release/*.nupkg" \
+          --api-key "${{ secrets.GITHUB_TOKEN }}" \
+          --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
+          --skip-duplicate

@@ -1,0 +1,16 @@
+@namespace CoreComponents.Components
+
+<button class="custom-button @ButtonClass" @onclick="OnClickCallback">
+    @ChildContent
+</button>
+
+@code {
+    [Parameter]
+    public string ButtonClass { get; set; } = "";
+
+    [Parameter]
+    public EventCallback OnClickCallback { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

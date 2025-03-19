@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.13</Version>
+        <Version>1.0.14</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -202,8 +202,10 @@
     <!--Runs before every rebuild.-->
     <Target
         Name="IncrementVersionScript"
-        BeforeTargets="BeforeBuild">
-        <Exec Command="powershell -ExecutionPolicy Bypass -File &quot;$(ProjectDir)Increment-Version.ps1&quot;" />
+        BeforeTargets="BeforeBuild"
+        Condition="'$(OS)' == 'Windows_NT'">
+        <Exec
+            Command="$(PowershellCmd) -ExecutionPolicy Bypass -File &quot;$(ProjectDir)Increment-Version.ps1&quot;" />
     </Target>
     <Target
         Name="IncrementVersion"
@@ -216,7 +218,9 @@
             <NewBuild>$([MSBuild]::Add($(VersionBuild), 1))</NewBuild>
             <NewVersion>$(VersionMajor).$(VersionMinor).$(NewBuild)</NewVersion>
         </PropertyGroup>
-        <Message Text="Incrementing version from $(Version) to $(NewVersion)" Importance="high" />
+        <Message
+            Text="Incrementing version from $(Version) to $(NewVersion)"
+            Importance="high" />
         <PropertyGroup>
             <Version>$(NewVersion)</Version>
         </PropertyGroup>

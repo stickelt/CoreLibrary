@@ -4,8 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!-- Comment out the PackageId to prevent it from being published as a separate package -->
-    <!-- <PackageId>Stickelt.CoreComponents</PackageId> -->
+    <!-- Restore the PackageId so the assembly is properly identified -->
+    <PackageId>Stickelt.CoreComponents</PackageId>
     <Version>1.0.0</Version>
     <Authors>Tom Stickel</Authors>
     <Company>Witcher</Company>

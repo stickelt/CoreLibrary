@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.23</Version>
+        <Version>1.0.24</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -241,7 +241,7 @@
         Name="CopyCoreComponents"
         AfterTargets="Build">
         <Copy
-            SourceFiles="..\CoreComponents\bin\$(Configuration)\net8.0\CoreComponents.dll"
-            DestinationFiles="$(OutDir)CoreComponents.dll" />
+            SourceFiles="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.dll"
+            DestinationFiles="$(OutDir)Stickelt.CoreComponents.dll" />
     </Target>
 </Project>

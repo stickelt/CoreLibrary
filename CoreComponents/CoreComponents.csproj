@@ -4,10 +4,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!-- Restore the PackageId so the assembly is properly identified -->
+    <!-- Use original namespaces but keep explicit PackageId -->
     <PackageId>Stickelt.CoreComponents</PackageId>
-    <RootNamespace>Stickelt.CoreComponents</RootNamespace>
-    <AssemblyName>Stickelt.CoreComponents</AssemblyName>
+    <RootNamespace>CoreComponents</RootNamespace>
+    <AssemblyName>CoreComponents</AssemblyName>
     <Version>1.0.0</Version>
     <Authors>Tom Stickel</Authors>
     <Company>Witcher</Company>

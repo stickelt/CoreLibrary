@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.32</Version>
+        <Version>1.0.33</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -195,10 +195,10 @@
         </PackageReference>
     </ItemGroup>
     -->
-    
     <!-- Add this to properly include the CoreComponents DLL in the lib folder -->
     <ItemGroup>
-        <None Include="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.dll">
+        <None
+            Include="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.dll">
             <Pack>true</Pack>
             <PackagePath>lib\net8.0</PackagePath>
         </None>
@@ -270,12 +270,12 @@
             <_PackageFiles
                 Include="..\CoreComponents\**\*.razor">
                 <BuildAction>Content</BuildAction>
-                <PackagePath>contentFiles\any\any\Stickelt.CoreComponents\%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
+                <PackagePath>contentFiles\any\any\CoreComponents\%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
             </_PackageFiles>
             <_PackageFiles
                 Include="..\CoreComponents\**\*.razor.css">
                 <BuildAction>Content</BuildAction>
-                <PackagePath>contentFiles\any\any\Stickelt.CoreComponents\%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
+                <PackagePath>contentFiles\any\any\CoreComponents\%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
             </_PackageFiles>
         </ItemGroup>
     </Target>

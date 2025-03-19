@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.26</Version>
+        <Version>1.0.28</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -243,8 +243,24 @@
         <Copy
             SourceFiles="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.dll"
             DestinationFiles="$(OutDir)Stickelt.CoreComponents.dll" />
+        <!-- Also copy dependencies that might be needed by CoreComponents -->
+        <Copy
+            SourceFiles="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.pdb"
+            DestinationFiles="$(OutDir)Stickelt.CoreComponents.pdb"
+            Condition="Exists('..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.pdb')" />
     </Target>
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Copy SourceFiles="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.dll" DestinationFiles="$(OutDir)Stickelt.CoreComponents.dll" />
+    
+    <!-- Include CoreComponents content files in the package -->
+    <Target Name="IncludeCoreComponentsContentInPackage" BeforeTargets="GenerateNuspec">
+        <ItemGroup>
+            <_PackageFiles Include="..\CoreComponents\**\*.razor">
+                <BuildAction>Content</BuildAction>
+                <PackagePath>contentFiles\any\any\Stickelt.CoreComponents\%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
+            </_PackageFiles>
+            <_PackageFiles Include="..\CoreComponents\**\*.razor.css">
+                <BuildAction>Content</BuildAction>
+                <PackagePath>contentFiles\any\any\Stickelt.CoreComponents\%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
+            </_PackageFiles>
+        </ItemGroup>
     </Target>
 </Project>

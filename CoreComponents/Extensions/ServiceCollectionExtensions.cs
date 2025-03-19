@@ -1,7 +1,7 @@
-using CoreComponents.Services;
+using Stickelt.CoreComponents.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CoreComponents.Extensions
+namespace Stickelt.CoreComponents.Extensions
 {
     /// <summary>
     /// Extension methods for IServiceCollection to register CoreComponents services
@@ -9,7 +9,7 @@ namespace CoreComponents.Extensions
     public static class ServiceCollectionExtensions
     {
         /// <summary>
-        /// Adds CoreComponents services to the specified IServiceCollection
+        /// Adds CoreComponents services to the service collection
         /// </summary>
         public static IServiceCollection AddCoreComponents(this IServiceCollection services)
         {

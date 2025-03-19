@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace CoreComponents.Services
+namespace Stickelt.CoreComponents.Services
 {
     /// <summary>
     /// Service to handle configuration for components in the library
@@ -8,18 +8,13 @@ namespace CoreComponents.Services
     public interface IConfigurationService
     {
         /// <summary>
-        /// Gets a configuration value by key
-        /// </summary>
-        string GetConfigValue(string key);
-
-        /// <summary>
-        /// Gets a configuration section
+        /// Gets a configuration section from the app settings
         /// </summary>
         IConfigurationSection GetSection(string sectionName);
     }
 
     /// <summary>
-    /// Implementation of IConfigurationService that wraps IConfiguration
+    /// Concrete implementation of IConfigurationService
     /// </summary>
     public class ConfigurationService : IConfigurationService
     {
@@ -30,11 +25,7 @@ namespace CoreComponents.Services
             _configuration = configuration;
         }
 
-        public string GetConfigValue(string key)
-        {
-            return _configuration[key];
-        }
-
+        /// <inheritdoc/>
         public IConfigurationSection GetSection(string sectionName)
         {
             return _configuration.GetSection(sectionName);

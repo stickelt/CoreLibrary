@@ -4,24 +4,19 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!-- Use original namespaces but keep explicit PackageId -->
-    <PackageId>Stickelt.CoreComponents</PackageId>
-    <RootNamespace>CoreComponents</RootNamespace>
-    <AssemblyName>CoreComponents</AssemblyName>
+    <!-- This ensures the assembly is properly identified while maintaining the original namespaces -->
+    <RootNamespace>Stickelt.CoreComponents</RootNamespace>
+    <AssemblyName>Stickelt.CoreComponents</AssemblyName>
     <Version>1.0.0</Version>
     <Authors>Tom Stickel</Authors>
     <Company>Witcher</Company>
     <Description>A Razor Class Library containing reusable UI components for Blazor applications</Description>
-    <!-- Allow packaging but don't generate on build -->
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <IsPackable>true</IsPackable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <!-- StaticWebAssets settings to avoid ambiguous paths -->
-    <StaticWebAssetBasePath>_content/CoreComponents</StaticWebAssetBasePath>
-    <!-- Ensure this project's output is included in the parent package -->
-    <IncludeContentInPack>true</IncludeContentInPack>
+    <StaticWebAssetBasePath>_content/Stickelt.CoreComponents</StaticWebAssetBasePath>
   </PropertyGroup>
 
   <ItemGroup>

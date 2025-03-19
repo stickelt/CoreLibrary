@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.22</Version>
+        <Version>1.0.24</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -29,11 +29,11 @@
             PackagePath="\" />
     </ItemGroup>
     <ItemGroup>
-        <!-- Reference CoreComponents with PrivateAssets="none" to ensure its exported to consumers -->
+        <!-- Reference CoreComponents with IncludeAssets=all and PrivateAssets=none to make it available to consumers -->
         <ProjectReference
             Include="..\CoreComponents\CoreComponents.csproj">
-            <PrivateAssets>none</PrivateAssets>
             <IncludeAssets>all</IncludeAssets>
+            <PrivateAssets>none</PrivateAssets>
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>
@@ -237,4 +237,11 @@
         <PowershellCmd
             Condition=" '$(OS)' != 'Windows_NT' ">pwsh</PowershellCmd>
     </PropertyGroup>
+    <Target
+        Name="CopyCoreComponents"
+        AfterTargets="Build">
+        <Copy
+            SourceFiles="..\CoreComponents\bin\$(Configuration)\net8.0\CoreComponents.dll"
+            DestinationFiles="$(OutDir)CoreComponents.dll" />
+    </Target>
 </Project>

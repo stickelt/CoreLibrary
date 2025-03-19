@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.20</Version>
+        <Version>1.0.21</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -16,6 +16,11 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <DebugType>embedded</DebugType>
+        <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+        <WarningsNotAsErrors>NU1605</WarningsNotAsErrors>
     </PropertyGroup>
     <ItemGroup>
         <None
@@ -24,11 +29,11 @@
             PackagePath="\" />
     </ItemGroup>
     <ItemGroup>
+        <!-- Reference CoreComponents with PrivateAssets="none" to ensure its exported to consumers -->
         <ProjectReference
             Include="..\CoreComponents\CoreComponents.csproj">
-            <!-- This ensures CoreComponents is embedded in CoreLibrary, not as a dependency -->
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>compile; runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>none</PrivateAssets>
+            <IncludeAssets>all</IncludeAssets>
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>

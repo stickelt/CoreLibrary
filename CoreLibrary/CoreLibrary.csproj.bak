@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.29</Version>
+        <Version>1.0.30</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -29,11 +29,11 @@
             PackagePath="\" />
     </ItemGroup>
     <ItemGroup>
-        <!-- Reference CoreComponents with IncludeAssets=all and PrivateAssets=none to make it available to consumers -->
+        <!-- Reference CoreComponents as a private asset to bundle it with the package -->
         <ProjectReference
             Include="..\CoreComponents\CoreComponents.csproj">
-            <IncludeAssets>all</IncludeAssets>
-            <PrivateAssets>none</PrivateAssets>
+            <PrivateAssets>all</PrivateAssets>
+            <ExcludeAssets>runtime</ExcludeAssets>
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>
@@ -188,7 +188,9 @@
     </ItemGroup>
     <!-- Tell NuGet not to create a package dependency on CoreComponents -->
     <ItemGroup>
-        <PackageReference Update="Stickelt.CoreComponents" Version="*">
+        <PackageReference
+            Update="Stickelt.CoreComponents"
+            Version="*">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
     </ItemGroup>
@@ -242,7 +244,8 @@
         Name="IncludeCoreComponentsInLib"
         BeforeTargets="GenerateNuspec">
         <ItemGroup>
-            <_PackageFiles Include="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.dll">
+            <_PackageFiles
+                Include="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.dll">
                 <BuildAction>None</BuildAction>
                 <PackagePath>lib\net8.0</PackagePath>
             </_PackageFiles>

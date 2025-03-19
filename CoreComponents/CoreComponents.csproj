@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <!-- Restore the PackageId so the assembly is properly identified -->
     <PackageId>Stickelt.CoreComponents</PackageId>
+    <RootNamespace>Stickelt.CoreComponents</RootNamespace>
+    <AssemblyName>Stickelt.CoreComponents</AssemblyName>
     <Version>1.0.0</Version>
     <Authors>Tom Stickel</Authors>
     <Company>Witcher</Company>

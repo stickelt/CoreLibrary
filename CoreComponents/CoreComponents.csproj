@@ -12,7 +12,6 @@
     <Company>Witcher</Company>
     <Description>A Razor Class Library containing reusable UI components for Blazor applications</Description>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <IsPackable>true</IsPackable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

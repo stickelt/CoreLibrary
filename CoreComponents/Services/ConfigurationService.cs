@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace CoreComponents.Services
+namespace Stickelt.CoreComponents.Services
 {
     /// <summary>
     /// Service to handle configuration for components in the library

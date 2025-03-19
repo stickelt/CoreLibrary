@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.16</Version>
+        <Version>1.0.19</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -168,6 +168,12 @@
         <PackageReference
             Include="ZiggyCreatures.FusionCache"
             Version="2.0.0" />
+        <PackageReference
+            Include="Stickelt.CoreComponents"
+            Version="1.0.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
     <ItemGroup>
         <!-- Ensure Version.props is included in the NuGet package -->

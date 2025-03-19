@@ -10,8 +10,9 @@
     <Authors>Tom Stickel</Authors>
     <Company>Witcher</Company>
     <Description>A Razor Class Library containing reusable UI components for Blazor applications</Description>
-    <!-- Disable package generation for this project since it will be included in CoreLibrary -->
+    <!-- Allow packaging but don't generate on build -->
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <IsPackable>true</IsPackable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

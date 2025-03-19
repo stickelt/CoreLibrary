@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.31</Version>
+        <Version>1.0.32</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -33,7 +33,7 @@
         <ProjectReference
             Include="..\CoreComponents\CoreComponents.csproj">
             <PrivateAssets>all</PrivateAssets>
-           <!--<ExcludeAssets>runtime</ExcludeAssets>-->
+            <!--<ExcludeAssets>runtime</ExcludeAssets>-->
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>
@@ -187,12 +187,21 @@
         </None>
     </ItemGroup>
     <!-- Tell NuGet not to create a package dependency on CoreComponents -->
+    <!-- Removing this as it might be causing conflicts -->
+    <!--
     <ItemGroup>
-        <PackageReference
-            Update="Stickelt.CoreComponents"
-            Version="*">
+        <PackageReference Update="Stickelt.CoreComponents" Version="*">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
+    </ItemGroup>
+    -->
+    
+    <!-- Add this to properly include the CoreComponents DLL in the lib folder -->
+    <ItemGroup>
+        <None Include="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.dll">
+            <Pack>true</Pack>
+            <PackagePath>lib\net8.0</PackagePath>
+        </None>
     </ItemGroup>
     <!--Runs before every rebuild.-->
     <Target
@@ -240,17 +249,19 @@
             Condition="Exists('..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.pdb')" />
     </Target>
     <!-- Include CoreComponents assembly in the lib folder of the package -->
+    <!-- Removing this target as it's redundant with the None element above -->
+    <!--
     <Target
         Name="IncludeCoreComponentsInLib"
         BeforeTargets="GenerateNuspec">
         <ItemGroup>
-            <_PackageFiles
-                Include="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.dll">
+            <_PackageFiles Include="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.dll">
                 <BuildAction>None</BuildAction>
                 <PackagePath>lib\net8.0</PackagePath>
             </_PackageFiles>
         </ItemGroup>
     </Target>
+    -->
     <!-- Include CoreComponents content files in the package -->
     <Target
         Name="IncludeCoreComponentsContentInPackage"

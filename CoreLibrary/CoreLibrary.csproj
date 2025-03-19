@@ -202,9 +202,10 @@
     <!--Runs before every rebuild.-->
     <Target
         Name="IncrementVersionScript"
-        BeforeTargets="BeforeBuild">
+        BeforeTargets="BeforeBuild"
+        Condition="'$(OS)' == 'Windows_NT'">
         <Exec
-            Command="powershell -ExecutionPolicy Bypass -File &quot;$(ProjectDir)Increment-Version.ps1&quot;" />
+            Command="$(PowershellCmd) -ExecutionPolicy Bypass -File &quot;$(ProjectDir)Increment-Version.ps1&quot;" />
     </Target>
     <Target
         Name="IncrementVersion"

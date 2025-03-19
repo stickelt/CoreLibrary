@@ -26,7 +26,9 @@
     <ItemGroup>
         <ProjectReference
             Include="..\CoreComponents\CoreComponents.csproj">
-            <PrivateAssets>contentfiles;analyzers</PrivateAssets>
+            <!-- Include all assets from CoreComponents in the package -->
+            <IncludeAssets>all</IncludeAssets>
+            <PrivateAssets>none</PrivateAssets>
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>

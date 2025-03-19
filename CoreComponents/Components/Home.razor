@@ -4,16 +4,19 @@
 @using Microsoft.Extensions.Configuration
 
 @inject IConfigurationService ConfigService
+@inject IConfiguration Configuration
 
 <PageTitle>Home</PageTitle>
 
-@if(string.IsNullOrEmpty(ApplicationNameFromConfig) && string.IsNullOrEmpty(ApplicationName))
+@if(string.IsNullOrEmpty(ApplicationNameFromConfigService) && 
+    string.IsNullOrEmpty(ApplicationNameFromConfig) && 
+    string.IsNullOrEmpty(ApplicationName))
 {
     <h3>Configuration is null</h3>
 }
 else 
 {
-    <h1>@(ApplicationNameFromConfig ?? ApplicationName ?? "Application Name Not Found")</h1>
+    <h1>@(ApplicationNameFromConfigService ?? ApplicationNameFromConfig ?? ApplicationName ?? "Application Name Not Found")</h1>
     
     <h1>Hello, world!</h1>
 
@@ -28,22 +31,33 @@ else
     [Parameter]
     public string ApplicationName { get; set; } = "";
     
+    private string ApplicationNameFromConfigService { get; set; }
     private string ApplicationNameFromConfig { get; set; }
 
     protected override void OnInitialized()
     {
         try 
         {
-            // Try to get the application name from configuration
-            var appSettings = ConfigService.GetSection("AppSettings");
-            if (appSettings != null)
+            // Try to get the application name using ConfigService
+            if (ConfigService != null)
             {
-                ApplicationNameFromConfig = appSettings["ApplicationName"];
+                var appSettings = ConfigService.GetSection("AppSettings");
+                if (appSettings != null)
+                {
+                    ApplicationNameFromConfigService = appSettings["ApplicationName"];
+                }
+            }
+            
+            // Fallback to direct IConfiguration if ConfigService is not available
+            if (string.IsNullOrEmpty(ApplicationNameFromConfigService) && Configuration != null)
+            {
+                ApplicationNameFromConfig = Configuration["AppSettings:ApplicationName"];
             }
         }
         catch
         {
             // Silently handle any configuration errors
+            ApplicationNameFromConfigService = null;
             ApplicationNameFromConfig = null;
         }
         

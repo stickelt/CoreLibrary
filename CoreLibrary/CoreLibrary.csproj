@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.19</Version>
+        <Version>1.0.20</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -26,9 +26,9 @@
     <ItemGroup>
         <ProjectReference
             Include="..\CoreComponents\CoreComponents.csproj">
-            <!-- Include all assets from CoreComponents in the package -->
-            <IncludeAssets>all</IncludeAssets>
-            <PrivateAssets>none</PrivateAssets>
+            <!-- This ensures CoreComponents is embedded in CoreLibrary, not as a dependency -->
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>compile; runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>

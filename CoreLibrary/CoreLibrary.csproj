@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.29</Version>
+        <Version>1.0.30</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -186,24 +186,14 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
-    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="call" />
-  </Target>
-  
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="call" />
-  </Target>
-  
-  <Target Name="PostRestore" AfterTargets="Restore">
-    <Exec Command="powershell -ExecutionPolicy Bypass -File Sync-VersionProps.ps1" />
-  </Target>
-
-  <Target Name="BeforePack" BeforeTargets="Pack">
-    <Exec Command="powershell -ExecutionPolicy Bypass -File Sync-VersionProps.ps1" />
-  </Target>-->
-    <!--<Target Name="SyncVersionProps" BeforeTargets="Pack">
-    <Exec Command="powershell -ExecutionPolicy Bypass -File &quot;$(ProjectDir)Sync-VersionProps.ps1&quot;" />
-  </Target>-->
+    <!-- Tell NuGet not to create a package dependency on CoreComponents -->
+    <ItemGroup>
+        <PackageReference
+            Update="Stickelt.CoreComponents"
+            Version="*">
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
     <!--Runs before every rebuild.-->
     <Target
         Name="IncrementVersionScript"
@@ -248,6 +238,18 @@
             SourceFiles="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.pdb"
             DestinationFiles="$(OutDir)Stickelt.CoreComponents.pdb"
             Condition="Exists('..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.pdb')" />
+    </Target>
+    <!-- Include CoreComponents assembly in the lib folder of the package -->
+    <Target
+        Name="IncludeCoreComponentsInLib"
+        BeforeTargets="GenerateNuspec">
+        <ItemGroup>
+            <_PackageFiles
+                Include="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.dll">
+                <BuildAction>None</BuildAction>
+                <PackagePath>lib\net8.0</PackagePath>
+            </_PackageFiles>
+        </ItemGroup>
     </Target>
     <!-- Include CoreComponents content files in the package -->
     <Target

@@ -19,7 +19,6 @@
     <StaticWebAssetBasePath>_content/CoreComponents</StaticWebAssetBasePath>
     <!-- Ensure this project's output is included in the parent package -->
     <IncludeContentInPack>true</IncludeContentInPack>
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>

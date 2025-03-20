@@ -1,0 +1,52 @@
+@namespace Stickelt.CoreComponents.Components
+@using Stickelt.CoreComponents.Services
+@inject IDynamicRouteService RouteService
+
+@if (_componentType != null)
+{
+    <DynamicComponent Type="@_componentType" Parameters="@_parameters" />
+}
+else
+{
+    <div class="not-found">
+        <h2>Page Not Found</h2>
+        <p>Could not find a component for route: @Route</p>
+        
+        <h3>Available Routes:</h3>
+        <ul>
+            @foreach (var route in RouteService.GetAvailableRoutes())
+            {
+                <li><a href="@route">@route</a></li>
+            }
+        </ul>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string Route { get; set; }
+    
+    private Type _componentType;
+    private Dictionary<string, object> _parameters;
+    
+    protected override void OnParametersSet()
+    {
+        // Get the component type for this route
+        _componentType = RouteService.GetComponentTypeForRoute(Route);
+        
+        if (_componentType != null)
+        {
+            // Get the configuration for this route
+            var config = RouteService.GetConfigurationForRoute(Route);
+            
+            // Prepare parameters to pass to the dynamic component
+            _parameters = new Dictionary<string, object>();
+            if (config != null)
+            {
+                _parameters.Add("Configuration", config);
+            }
+        }
+        
+        base.OnParametersSet();
+    }
+} 

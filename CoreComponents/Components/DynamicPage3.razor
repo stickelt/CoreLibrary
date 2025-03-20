@@ -1,0 +1,19 @@
+@namespace Stickelt.CoreComponents.Components
+@inherits ComponentBase
+
+<h1>Dynamic Page 3</h1>
+<p>This is the third dynamically loaded component.</p>
+
+@if (Configuration?.ShowDetails == true)
+{
+    <div class="details">
+        <h3>Details Section</h3>
+        <p>This content is conditionally displayed based on configuration.</p>
+        <p>@Configuration.Description</p>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public PageConfiguration Configuration { get; set; }
+} 

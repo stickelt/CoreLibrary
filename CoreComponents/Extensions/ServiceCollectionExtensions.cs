@@ -16,6 +16,9 @@ namespace CoreComponents.Extensions
             // Register the ConfigurationService
             services.AddScoped<IConfigurationService, ConfigurationService>();
             
+            // Register the DynamicRouteService
+            services.AddScoped<IDynamicRouteService, DynamicRouteService>();
+            
             return services;
         }
     }
@@ -35,6 +38,9 @@ namespace Stickelt.CoreComponents.Extensions
         {
             // Register the ConfigurationService
             services.AddScoped<IConfigurationService, ConfigurationService>();
+            
+            // Register the DynamicRouteService
+            services.AddScoped<IDynamicRouteService, DynamicRouteService>();
             
             return services;
         }

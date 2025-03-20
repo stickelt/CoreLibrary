@@ -1,5 +1,6 @@
 @namespace Stickelt.CoreComponents.Components
 @using Stickelt.CoreComponents.Services
+@using System.Diagnostics
 @inject IDynamicRouteService RouteService
 
 @if (_componentType != null)
@@ -16,7 +17,7 @@ else
         <ul>
             @foreach (var route in RouteService.GetAvailableRoutes())
             {
-                <li><a href="@route">@route</a></li>
+                <li><a href="@($"/dynamic{route}")">@route</a></li>
             }
         </ul>
     </div>
@@ -31,8 +32,11 @@ else
     
     protected override void OnParametersSet()
     {
+        Debug.WriteLine($"DynamicRouter received route: '{Route}'");
+        
         // Get the component type for this route
         _componentType = RouteService.GetComponentTypeForRoute(Route);
+        Debug.WriteLine($"Component type resolved: {(_componentType != null ? _componentType.FullName : "null")}");
         
         if (_componentType != null)
         {
@@ -44,6 +48,7 @@ else
             if (config != null)
             {
                 _parameters.Add("Configuration", config);
+                Debug.WriteLine($"Added configuration parameter: {config.Title}");
             }
         }
         

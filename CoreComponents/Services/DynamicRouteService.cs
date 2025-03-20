@@ -52,21 +52,19 @@ namespace Stickelt.CoreComponents.Services
         
         private void LoadDynamicRoutes()
         {
-            // Find all components with RouteAttribute in the CoreComponents assembly
-            var componentTypes = typeof(DynamicPage1).Assembly
-                .GetTypes()
-                .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(Microsoft.AspNetCore.Components.ComponentBase)))
-                .ToList();
-                
-            // Map the component name to Type
-            foreach (var componentName in new [] { "DynamicPage1", "DynamicPage2", "DynamicPage3" })
+            // Directly map routes to component types for simplicity and reliability
+            // This avoids issues with type discovery and ensures consistent behavior
+            var assembly = typeof(DynamicPage1).Assembly;
+            
+            // Map routes directly to fully-qualified component types
+            _routeComponentMap["/dynamicpage1"] = assembly.GetType("Stickelt.CoreComponents.Components.DynamicPage1");
+            _routeComponentMap["/dynamicpage2"] = assembly.GetType("Stickelt.CoreComponents.Components.DynamicPage2");
+            _routeComponentMap["/dynamicpage3"] = assembly.GetType("Stickelt.CoreComponents.Components.DynamicPage3");
+            
+            // Log all mapped routes
+            foreach (var entry in _routeComponentMap)
             {
-                var componentType = componentTypes.FirstOrDefault(t => t.Name == componentName);
-                if (componentType != null)
-                {
-                    string route = $"/{componentName.ToLowerInvariant()}";
-                    _routeComponentMap[route] = componentType;
-                }
+                System.Diagnostics.Debug.WriteLine($"Registered route: {entry.Key} -> {entry.Value?.FullName ?? "null"}");
             }
         }
         
@@ -110,6 +108,17 @@ namespace Stickelt.CoreComponents.Services
         public Type GetComponentTypeForRoute(string route)
         {
             if (string.IsNullOrEmpty(route)) route = "/";
+            
+            // Normalize route by ensuring it starts with /
+            if (!route.StartsWith("/")) route = "/" + route;
+            
+            // Debug information 
+            System.Diagnostics.Debug.WriteLine($"Looking for route: {route}");
+            foreach (var key in _routeComponentMap.Keys)
+            {
+                System.Diagnostics.Debug.WriteLine($"Available route: {key}");
+            }
+            
             return _routeComponentMap.TryGetValue(route, out var componentType) ? componentType : null;
         }
         

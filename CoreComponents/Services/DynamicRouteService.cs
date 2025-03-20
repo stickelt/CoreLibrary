@@ -70,15 +70,57 @@ namespace Stickelt.CoreComponents.Services
         
         private void LoadConfigurations(IConfiguration configuration)
         {
+            // Debug configuration access
+            System.Diagnostics.Debug.WriteLine("Loading DynamicPages configuration");
+            
             // Get the DynamicPages section from configuration
             var dynamicPagesSection = configuration.GetSection("DynamicPages");
-            if (dynamicPagesSection == null) return;
             
-            // Process each route configuration
+            // Log whether we found the section
+            System.Diagnostics.Debug.WriteLine($"DynamicPages section found: {dynamicPagesSection.Exists()}");
+            
+            // If no configuration found, create default values
+            if (!dynamicPagesSection.Exists() || !dynamicPagesSection.GetChildren().Any())
+            {
+                System.Diagnostics.Debug.WriteLine("Using default configurations since none were found");
+                
+                // Default configurations
+                _routeConfigMap["/dynamicpage1"] = new PageConfiguration 
+                { 
+                    Title = "Default Dynamic Page 1", 
+                    Description = "This is a default configuration", 
+                    ShowDetails = true 
+                };
+                
+                _routeConfigMap["/dynamicpage2"] = new PageConfiguration 
+                { 
+                    Title = "Default Dynamic Page 2", 
+                    Description = "This is a default configuration with custom data", 
+                    ShowDetails = true,
+                    CustomData = new System.Collections.Generic.Dictionary<string, string>
+                    {
+                        { "DefaultKey1", "DefaultValue1" },
+                        { "DefaultKey2", "DefaultValue2" }
+                    }
+                };
+                
+                _routeConfigMap["/dynamicpage3"] = new PageConfiguration 
+                { 
+                    Title = "Default Dynamic Page 3", 
+                    Description = "This is a default configuration with details", 
+                    ShowDetails = true 
+                };
+                
+                return;
+            }
+            
+            // Process each route configuration from the config file
             foreach (var routeSection in dynamicPagesSection.GetChildren())
             {
                 string route = routeSection.Key;
                 if (!route.StartsWith("/")) route = "/" + route;
+                
+                System.Diagnostics.Debug.WriteLine($"Processing configuration for route: {route}");
                 
                 // Map configuration to PageConfiguration object
                 var pageConfig = new PageConfiguration
@@ -88,13 +130,16 @@ namespace Stickelt.CoreComponents.Services
                     ShowDetails = routeSection.GetValue<bool>("ShowDetails")
                 };
                 
+                System.Diagnostics.Debug.WriteLine($"Loaded config - Title: {pageConfig.Title}, ShowDetails: {pageConfig.ShowDetails}");
+                
                 // Load any custom data
                 var customDataSection = routeSection.GetSection("CustomData");
-                if (customDataSection != null)
+                if (customDataSection != null && customDataSection.Exists())
                 {
                     foreach (var item in customDataSection.GetChildren())
                     {
                         pageConfig.CustomData[item.Key] = item.Value;
+                        System.Diagnostics.Debug.WriteLine($"Added custom data: {item.Key} = {item.Value}");
                     }
                 }
                 

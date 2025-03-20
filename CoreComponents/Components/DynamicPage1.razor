@@ -1,9 +1,16 @@
 @namespace Stickelt.CoreComponents.Components
 @inherits ComponentBase
 
-<h1>Dynamic Page 1</h1>
+<h1>@(Configuration?.Title ?? "Dynamic Page 1")</h1>
 <p>This is a dynamically loaded component from CoreComponents library.</p>
 <p>Configuration: @(Configuration != null ? Configuration.Title : "No configuration")</p>
+
+@if (Configuration?.ShowDetails == true)
+{
+    <div class="details">
+        <p>Description: @Configuration.Description</p>
+    </div>
+}
 
 @code {
     [Parameter]

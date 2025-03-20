@@ -1,19 +1,24 @@
 @namespace Stickelt.CoreComponents.Components
 @inherits ComponentBase
 
-<h1>Dynamic Page 2</h1>
+<h1>@(Configuration?.Title ?? "Dynamic Page 2")</h1>
 <p>This is another dynamically loaded component from the library.</p>
 <p>Configuration: @(Configuration != null ? Configuration.Title : "No configuration")</p>
 
 <div class="custom-content">
-    @if (Configuration?.CustomData != null)
+    @if (Configuration?.CustomData != null && Configuration.CustomData.Any())
     {
+        <h3>Custom Data:</h3>
         <ul>
             @foreach (var item in Configuration.CustomData)
             {
                 <li>@item.Key: @item.Value</li>
             }
         </ul>
+    }
+    else
+    {
+        <p>No custom data available</p>
     }
 </div>
 

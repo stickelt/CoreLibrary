@@ -1,7 +1,7 @@
 @namespace Stickelt.CoreComponents.Components
 @inherits ComponentBase
 
-<h1>Dynamic Page 3</h1>
+<h1>@(Configuration?.Title ?? "Dynamic Page 3")</h1>
 <p>This is the third dynamically loaded component.</p>
 
 @if (Configuration?.ShowDetails == true)
@@ -10,6 +10,13 @@
         <h3>Details Section</h3>
         <p>This content is conditionally displayed based on configuration.</p>
         <p>@Configuration.Description</p>
+    </div>
+}
+else
+{
+    <div class="no-details">
+        <p>Details are not enabled for this page.</p>
+        <p>This is fallback content when ShowDetails is not set to true.</p>
     </div>
 }
 

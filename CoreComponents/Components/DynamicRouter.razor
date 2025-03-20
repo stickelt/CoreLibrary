@@ -9,9 +9,16 @@
 }
 else
 {
-    <div class="not-found">
+    <div class="dynamic-router-error not-found">
         <h2>Page Not Found</h2>
         <p>Could not find a component for route: @Route</p>
+        
+        <h3>Debug Information:</h3>
+        <div class="debug-info">
+            <p>Route: '@Route'</p>
+            <p>Component Type: @(_componentType?.FullName ?? "null")</p>
+            <p>Available Routes Count: @(RouteService.GetAvailableRoutes()?.Count() ?? 0)</p>
+        </div>
         
         <h3>Available Routes:</h3>
         <ul>
@@ -34,22 +41,35 @@ else
     {
         Debug.WriteLine($"DynamicRouter received route: '{Route}'");
         
-        // Get the component type for this route
-        _componentType = RouteService.GetComponentTypeForRoute(Route);
-        Debug.WriteLine($"Component type resolved: {(_componentType != null ? _componentType.FullName : "null")}");
-        
-        if (_componentType != null)
+        try
         {
-            // Get the configuration for this route
-            var config = RouteService.GetConfigurationForRoute(Route);
+            // Get the component type for this route
+            _componentType = RouteService.GetComponentTypeForRoute(Route);
+            Debug.WriteLine($"Component type resolved: {(_componentType != null ? _componentType.FullName : "null")}");
             
-            // Prepare parameters to pass to the dynamic component
-            _parameters = new Dictionary<string, object>();
-            if (config != null)
+            if (_componentType != null)
             {
-                _parameters.Add("Configuration", config);
-                Debug.WriteLine($"Added configuration parameter: {config.Title}");
+                // Get the configuration for this route
+                var config = RouteService.GetConfigurationForRoute(Route);
+                Debug.WriteLine($"Configuration for route: {(config != null ? "Found" : "Not found")}");
+                
+                // Prepare parameters to pass to the dynamic component
+                _parameters = new Dictionary<string, object>();
+                if (config != null)
+                {
+                    _parameters.Add("Configuration", config);
+                    Debug.WriteLine($"Added configuration parameter: {config.Title}");
+                }
             }
+            else
+            {
+                Debug.WriteLine($"Failed to find component for route: '{Route}'");
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error in DynamicRouter: {ex.Message}");
+            Debug.WriteLine(ex.StackTrace);
         }
         
         base.OnParametersSet();

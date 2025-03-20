@@ -173,7 +173,58 @@ namespace Stickelt.CoreComponents.Services
         public PageConfiguration GetConfigurationForRoute(string route)
         {
             if (string.IsNullOrEmpty(route)) route = "/";
-            return _routeConfigMap.TryGetValue(route, out var config) ? config : null;
+            
+            // Normalize route by ensuring it starts with /
+            if (!route.StartsWith("/")) route = "/" + route;
+            
+            // Debug information
+            System.Diagnostics.Debug.WriteLine($"Looking for configuration for route: '{route}'");
+            System.Diagnostics.Debug.WriteLine($"Available configurations: {string.Join(", ", _routeConfigMap.Keys)}");
+
+            // Try to find the exact route first
+            if (_routeConfigMap.TryGetValue(route, out var config))
+            {
+                System.Diagnostics.Debug.WriteLine($"Found configuration for route: '{route}'");
+                return config;
+            }
+            
+            // If route is not found, try alternative formats
+            // For example, the route might be "/dynamicpage1" but the key is "dynamicpage1"
+            string routeWithoutSlash = route.TrimStart('/');
+            if (_routeConfigMap.TryGetValue(routeWithoutSlash, out config))
+            {
+                System.Diagnostics.Debug.WriteLine($"Found configuration for alternative route: '{routeWithoutSlash}'");
+                return config;
+            }
+
+            // Create default configuration on-the-fly if not found
+            string componentName = route.TrimStart('/').ToLowerInvariant();
+            System.Diagnostics.Debug.WriteLine($"No configuration found, creating default for: '{componentName}'");
+            
+            var defaultConfig = new PageConfiguration 
+            { 
+                Title = $"Default {char.ToUpper(componentName[0]) + componentName.Substring(1)}", 
+                Description = $"This is a default configuration for {componentName}", 
+                ShowDetails = true 
+            };
+            
+            // Add some sample data for the second page
+            if (componentName.Equals("dynamicpage2", StringComparison.OrdinalIgnoreCase))
+            {
+                defaultConfig.CustomData["DefaultKey1"] = "DefaultValue1";
+                defaultConfig.CustomData["DefaultKey2"] = "DefaultValue2";
+            }
+            // Ensure page 3 always shows details
+            else if (componentName.Equals("dynamicpage3", StringComparison.OrdinalIgnoreCase))
+            {
+                defaultConfig.ShowDetails = true;
+                defaultConfig.Description = "This is a details section that's always visible in page 3";
+            }
+            
+            // Store this default config for future use
+            _routeConfigMap[route] = defaultConfig;
+            
+            return defaultConfig;
         }
         
         /// <summary>

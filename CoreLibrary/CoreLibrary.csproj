@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.38</Version>
+        <Version>1.0.39</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -115,55 +115,55 @@
             Version="5.1.0" />
         <PackageReference
             Include="Syncfusion.Blazor.Cards"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Blazor.Core"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Blazor.DataForm"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Blazor.Grid"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Blazor.Layouts"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Blazor.MultiColumnComboBox"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Blazor.Navigations"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Blazor.Notifications"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Blazor.Popups"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Blazor.SfPdfViewer"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Blazor.Spinner"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Blazor.SplitButtons"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Blazor.Themes"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.DocIO.Net.Core"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.DocIORenderer.Net.Core"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Licensing"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="Syncfusion.Pdf.Imaging.Net.Core"
-            Version="28.2.3" />
+            Version="28.2.12" />
         <PackageReference
             Include="System.Linq.Async"
             Version="6.0.1" />

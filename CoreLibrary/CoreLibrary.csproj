@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.39</Version>
+        <Version>1.0.40</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -29,11 +29,11 @@
             PackagePath="\" />
     </ItemGroup>
     <ItemGroup>
-        <!-- Reference CoreComponents as a private asset to bundle it with the package -->
+        <!-- Reference CoreComponents as a project reference with proper asset inclusion -->
         <ProjectReference
             Include="..\CoreComponents\CoreComponents.csproj">
-            <PrivateAssets>all</PrivateAssets>
-            <!--<ExcludeAssets>runtime</ExcludeAssets>-->
+            <PrivateAssets>none</PrivateAssets>
+            <IncludeAssets>all</IncludeAssets>
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>

@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.48</Version>
+        <Version>1.0.4</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -210,26 +210,13 @@
         BeforeTargets="BeforeBuild"
         Condition="'$(OS)' == 'Windows_NT'">
         <Exec
-            Command="$(PowershellCmd) -ExecutionPolicy Bypass -File &quot;$(ProjectDir)Increment-Version.ps1&quot;" />
+            Command="$(PowershellCmd) -ExecutionPolicy Bypass -File &quot;$(SolutionDir)Increment-Version.ps1&quot;" />
     </Target>
+    <!-- Keep this target for compatibility but it won't actually do anything now -->
     <Target
         Name="IncrementVersion"
         BeforeTargets="BeforeBuild"
-        Condition="'$(MSBuildProjectExtension)' == '.csproj'">
-        <PropertyGroup>
-            <VersionMajor>$([System.Text.RegularExpressions.Regex]::Match($(Version), ^\d+).Value)</VersionMajor>
-            <VersionMinor>$([System.Text.RegularExpressions.Regex]::Match($(Version), \.\d+).Value.TrimStart('.'))</VersionMinor>
-            <VersionBuild>$([System.Text.RegularExpressions.Regex]::Match($(Version), \.\d+\.(\d+)).Groups[1].Value)</VersionBuild>
-            <NewBuild>$([MSBuild]::Add($(VersionBuild), 1))</NewBuild>
-            <NewVersion>$(VersionMajor).$(VersionMinor).$(NewBuild)</NewVersion>
-        </PropertyGroup>
-        <Message
-            Text="Incrementing version from $(Version) to $(NewVersion)"
-            Importance="high" />
-        <PropertyGroup>
-            <Version>$(NewVersion)</Version>
-        </PropertyGroup>
-    </Target>
+        Condition="'$(MSBuildProjectExtension)' == '.csproj' AND '$(Configuration)' == 'Release'"></Target>
     <PropertyGroup>
         <!-- Detect platform and use appropriate PowerShell command -->
         <PowershellCmd
@@ -279,5 +266,24 @@
                 <PackagePath>contentFiles\any\any\CoreComponents\%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
             </_PackageFiles>
         </ItemGroup>
+    </Target>
+    <!-- Copy packages to bin/Release for GitHub Actions -->
+    <Target
+        Name="CopyPackagesToBinRelease"
+        AfterTargets="Pack"
+        Condition="'$(Configuration)' == 'Release'">
+        <PropertyGroup>
+            <ReleaseDir>$(ProjectDir)bin\Release</ReleaseDir>
+        </PropertyGroup>
+        <MakeDir
+            Directories="$(ReleaseDir)"
+            Condition="!Exists('$(ReleaseDir)')" />
+        <Copy
+            SourceFiles="$(PackageOutputPath)\$(PackageId).$(Version).nupkg"
+            DestinationFolder="$(ReleaseDir)"
+            SkipUnchangedFiles="true" />
+        <Message
+            Text="Copied NuGet package to $(ReleaseDir) for GitHub Actions"
+            Importance="high" />
     </Target>
 </Project>

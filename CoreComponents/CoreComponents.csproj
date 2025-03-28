@@ -8,7 +8,7 @@
         <!-- This ensures the assembly is properly identified while maintaining the original namespaces -->
         <RootNamespace>Stickelt.CoreComponents</RootNamespace>
         <AssemblyName>Stickelt.CoreComponents</AssemblyName>
-        <Version>1.0.1</Version>
+        <Version>1.0.4</Version>
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
         <Description>A Razor Class Library containing reusable UI components for Blazor applications</Description>
@@ -57,24 +57,30 @@
         BeforeTargets="BeforeBuild"
         Condition="'$(OS)' == 'Windows_NT'">
         <Exec
-            Command="powershell -ExecutionPolicy Bypass -File &quot;$(ProjectDir)Increment-Version.ps1&quot;" />
+            Command="powershell -ExecutionPolicy Bypass -File &quot;$(SolutionDir)Increment-Version.ps1&quot;" />
     </Target>
+    <!-- Keep this target for compatibility but it won't actually do anything now -->
     <Target
         Name="IncrementVersion"
         BeforeTargets="BeforeBuild"
-        Condition="'$(MSBuildProjectExtension)' == '.csproj'">
+        Condition="'$(MSBuildProjectExtension)' == '.csproj' AND '$(Configuration)' == 'Release'"></Target>
+    <!-- Copy packages to bin/Release for GitHub Actions -->
+    <Target
+        Name="CopyPackagesToBinRelease"
+        AfterTargets="Pack"
+        Condition="'$(Configuration)' == 'Release'">
         <PropertyGroup>
-            <VersionMajor>$([System.Text.RegularExpressions.Regex]::Match($(Version), ^\d+).Value)</VersionMajor>
-            <VersionMinor>$([System.Text.RegularExpressions.Regex]::Match($(Version), \.\d+).Value.TrimStart('.'))</VersionMinor>
-            <VersionBuild>$([System.Text.RegularExpressions.Regex]::Match($(Version), \.\d+\.(\d+)).Groups[1].Value)</VersionBuild>
-            <NewBuild>$([MSBuild]::Add($(VersionBuild), 1))</NewBuild>
-            <NewVersion>$(VersionMajor).$(VersionMinor).$(NewBuild)</NewVersion>
+            <ReleaseDir>$(ProjectDir)bin\Release</ReleaseDir>
         </PropertyGroup>
+        <MakeDir
+            Directories="$(ReleaseDir)"
+            Condition="!Exists('$(ReleaseDir)')" />
+        <Copy
+            SourceFiles="$(PackageOutputPath)\$(PackageId).$(Version).nupkg"
+            DestinationFolder="$(ReleaseDir)"
+            SkipUnchangedFiles="true" />
         <Message
-            Text="Incrementing version from $(Version) to $(NewVersion)"
+            Text="Copied NuGet package to $(ReleaseDir) for GitHub Actions"
             Importance="high" />
-        <PropertyGroup>
-            <Version>$(NewVersion)</Version>
-        </PropertyGroup>
     </Target>
 </Project>

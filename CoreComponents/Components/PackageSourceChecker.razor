@@ -1,0 +1,56 @@
+@inject IJSRuntime JSRuntime
+@using System.Reflection
+@using Microsoft.JSInterop
+
+<h3 style="color: purple;">Package Source Verification</h3>
+
+<div style="padding: 10px; border: 1px solid #ddd; background-color: #f8f8f8;">
+    <button class="btn btn-primary" @onclick="CheckPackageSource">Check if using Local Package</button>
+    
+    @if(!string.IsNullOrEmpty(result))
+    {
+        <div style="margin-top: 10px; padding: 10px; background-color: @(isLocal ? "#d4edda" : "#f8d7da"); 
+                    color: @(isLocal ? "#155724" : "#721c24"); border-radius: 4px;">
+            <h4>@(isLocal ? "SUCCESS: Using LOCAL package" : "USING GITHUB PACKAGE")</h4>
+            <pre style="white-space: pre-wrap;">@result</pre>
+        </div>
+    }
+</div>
+
+@code {
+    private string result = "";
+    private bool isLocal = false;
+    
+    private async Task CheckPackageSource()
+    {
+        try 
+        {
+            // Check assembly location and version
+            var assembly = Assembly.GetExecutingAssembly();
+            var location = assembly.Location;
+            var version = assembly.GetName().Version?.ToString() ?? "unknown";
+            
+            // Try to find the marker file
+            try 
+            {
+                await JSRuntime.InvokeAsync<string>("fetch", "/_content/Stickelt.CoreComponents/content/LocalPackageMarker.txt");
+                result = $"Found LocalPackageMarker.txt - this confirms you're using the local package.\n" +
+                         $"Assembly version: {version}\n" +
+                         $"Assembly location: {location}";
+                isLocal = true;
+            }
+            catch 
+            {
+                result = $"Could not find LocalPackageMarker.txt - you are likely using the GitHub package.\n" +
+                         $"Assembly version: {version}\n" +
+                         $"Assembly location: {location}";
+                isLocal = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            result = $"Error checking package source: {ex.Message}";
+            isLocal = false;
+        }
+    }
+} 

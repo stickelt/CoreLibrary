@@ -8,6 +8,16 @@
 
 <PageTitle>Home</PageTitle>
 
+<VersionDisplay />
+
+<div style="border: 3px solid red; padding: 10px; margin: 10px;">
+    <h2 style="color: red;">LOCAL VERSION INDICATOR</h2>
+    <p>This text only appears in the local package version. If you see this, you're using the local NuGet package!</p>
+    <p>Build timestamp: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</p>
+</div>
+
+<PackageSourceChecker />
+
 @if(string.IsNullOrEmpty(ApplicationNameFromConfigService) && 
     string.IsNullOrEmpty(ApplicationNameFromConfig) && 
     string.IsNullOrEmpty(ApplicationName))
@@ -21,6 +31,8 @@ else
     <h1>Hello, world!</h1>
 
     <p>Welcome to your new app.</p>
+
+    <p>New changes here to Home.razor in the CoreComponents</p>
 }
 
 @code {

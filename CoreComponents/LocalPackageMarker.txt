@@ -1,0 +1,6 @@
+THIS FILE EXISTS ONLY IN THE LOCAL NUGET PACKAGE
+Version: 1.0.50+
+Created: @DateTime.Now
+
+If this file is accessible from your application, you are definitely 
+using the local NuGet package and not the one from GitHub. 

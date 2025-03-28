@@ -1,0 +1,30 @@
+@using System.Reflection
+
+<div class="local-version-indicator" style="padding: 5px; background-color: #ffeb3b; color: black; margin: 5px; border-radius: 4px; font-size: 12px;">
+    <strong>LOCAL PACKAGE:</strong> CoreComponents v@(GetVersion()) 
+    - Built: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+    <br />
+    <strong>Package ID:</strong> Stickelt.CoreComponents
+    <br />
+    <strong>Assembly Location:</strong> @(GetAssemblyLocation())
+</div>
+
+@code {
+    private string GetVersion()
+    {
+        var assembly = Assembly.GetExecutingAssembly();
+        var fileVersion = assembly.GetCustomAttribute<AssemblyFileVersionAttribute>()?.Version ?? "unknown";
+        var version = assembly.GetName().Version?.ToString() ?? "unknown";
+        return $"{version} (File: {fileVersion})";
+    }
+    
+    private string GetAssemblyLocation()
+    {
+        try {
+            return Assembly.GetExecutingAssembly().Location;
+        }
+        catch {
+            return "Could not determine location";
+        }
+    }
+} 

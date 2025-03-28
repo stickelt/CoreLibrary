@@ -1,0 +1,6 @@
+2025-03-28 13:29:37 - Starting version increment script...
+2025-03-28 13:29:37 - Checking for .csproj file at: C:\dev\2025development\CoreComponents\CoreComponents.csproj
+2025-03-28 13:29:37 - Backup created at: C:\dev\2025development\CoreComponents\CoreComponents.csproj.bak
+2025-03-28 13:29:37 - Extracted version: '1.0.0'
+2025-03-28 13:29:37 - Version updated from 1.0.0 to 1.0.1
+2025-03-28 13:29:37 - Script execution completed.

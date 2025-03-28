@@ -11,7 +11,8 @@
     <Authors>Tom Stickel</Authors>
     <Company>Witcher</Company>
     <Description>A Razor Class Library containing reusable UI components for Blazor applications</Description>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>C:\dev\LocalNuGet</PackageOutputPath>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

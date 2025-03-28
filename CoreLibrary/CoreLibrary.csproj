@@ -6,12 +6,13 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.40</Version>
+        <Version>1.0.42</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
         <Description>A core library containing shared interfaces, base functionality, and UI components for .NET applications</Description>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageOutputPath>C:\dev\LocalNuGet</PackageOutputPath>
         <!-- Useful NuGet metadata -->
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>

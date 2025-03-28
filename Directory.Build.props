@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <!-- Import version from Version.props first -->
+  <Import Project="$(MSBuildThisFileDirectory)Version.props" Condition="Exists('$(MSBuildThisFileDirectory)Version.props')" />
+  
+  <PropertyGroup>
+    <!-- Set version with a simple default that will be overridden if Version.props exists -->
+    <Version Condition="'$(VersionFromProps)' == ''">1.0.1</Version>
+    <Version Condition="'$(VersionFromProps)' != ''">$(VersionFromProps)</Version>
+    
+    <!-- All other version properties just reference the main Version -->
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+    <InformationalVersion>$(Version)</InformationalVersion>
+    <PackageVersion Condition="'$(Configuration)' == 'Debug'">$(Version)-local</PackageVersion>
+    <PackageVersion Condition="'$(Configuration)' != 'Debug'">$(Version)</PackageVersion>
+    
+    <!-- Standard NuGet properties -->
+    <Authors>Tom Stickel</Authors>
+    <Company>Witcher</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/stickelt/CoreLibrary</PackageProjectUrl>
+  </PropertyGroup>
+</Project>

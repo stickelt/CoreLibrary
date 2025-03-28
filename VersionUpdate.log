@@ -64,3 +64,89 @@
 2025-03-28 13:42:48 - Setting version to: 1.0.4 (from baseVersion parameter)
 2025-03-28 13:42:48 - Updated version to: 1.0.4 in C:\dev\2025development\CoreComponents\CoreComponents.csproj
 2025-03-28 13:42:48 - Consolidated script execution completed.
+2025-03-28 13:54:01 - Starting consolidated version increment script...
+2025-03-28 13:54:01 - Processing project: C:\dev\2025development\CoreLibrary\CoreLibrary.csproj
+2025-03-28 13:54:01 - Backup created at: C:\dev\2025development\CoreLibrary\CoreLibrary.csproj.bak
+2025-03-28 13:54:01 - Extracted version: '1.0.0'
+2025-03-28 13:54:01 - Updated version to: 1.0.1 in C:\dev\2025development\CoreLibrary\CoreLibrary.csproj
+2025-03-28 13:54:01 - Processing project: C:\dev\2025development\CoreComponents\CoreComponents.csproj
+2025-03-28 13:54:01 - Backup created at: C:\dev\2025development\CoreComponents\CoreComponents.csproj.bak
+2025-03-28 13:54:01 - Extracted version: '1.0.0'
+2025-03-28 13:54:01 - Setting version to: 1.0.1 (from baseVersion parameter)
+2025-03-28 13:54:01 - Updated version to: 1.0.1 in C:\dev\2025development\CoreComponents\CoreComponents.csproj
+2025-03-28 13:54:01 - Consolidated script execution completed.
+2025-03-28 13:54:05 - Starting consolidated version increment script...
+2025-03-28 13:54:05 - Processing project: C:\dev\2025development\CoreLibrary\CoreLibrary.csproj
+2025-03-28 13:54:05 - Backup created at: C:\dev\2025development\CoreLibrary\CoreLibrary.csproj.bak
+2025-03-28 13:54:05 - Extracted version: '1.0.1'
+2025-03-28 13:54:05 - Updated version to: 1.0.2 in C:\dev\2025development\CoreLibrary\CoreLibrary.csproj
+2025-03-28 13:54:05 - Processing project: C:\dev\2025development\CoreComponents\CoreComponents.csproj
+2025-03-28 13:54:05 - Backup created at: C:\dev\2025development\CoreComponents\CoreComponents.csproj.bak
+2025-03-28 13:54:05 - Extracted version: '1.0.1'
+2025-03-28 13:54:05 - Setting version to: 1.0.2 (from baseVersion parameter)
+2025-03-28 13:54:05 - Updated version to: 1.0.2 in C:\dev\2025development\CoreComponents\CoreComponents.csproj
+2025-03-28 13:54:05 - Consolidated script execution completed.
+2025-03-28 14:01:00 - Starting consolidated version increment script...
+2025-03-28 14:01:00 - Processing project: C:\dev\2025development\CoreLibrary\CoreLibrary.csproj
+2025-03-28 14:01:01 - Backup created at: C:\dev\2025development\CoreLibrary\CoreLibrary.csproj.bak
+2025-03-28 14:01:01 - Extracted version: '1.0.0'
+2025-03-28 14:01:01 - Updated version to: 1.0.1 in C:\dev\2025development\CoreLibrary\CoreLibrary.csproj
+2025-03-28 14:01:01 - Processing project: C:\dev\2025development\CoreComponents\CoreComponents.csproj
+2025-03-28 14:01:01 - Backup created at: C:\dev\2025development\CoreComponents\CoreComponents.csproj.bak
+2025-03-28 14:01:01 - Extracted version: '1.0.0'
+2025-03-28 14:01:01 - Setting version to: 1.0.1 (from baseVersion parameter)
+2025-03-28 14:01:01 - Updated version to: 1.0.1 in C:\dev\2025development\CoreComponents\CoreComponents.csproj
+2025-03-28 14:01:01 - Consolidated script execution completed.
+2025-03-28 14:15:25 - Starting centralized version increment script...
+2025-03-28 14:15:25 - Backup created at: C:\dev\2025development\Directory.Build.props.bak
+2025-03-28 14:15:25 - Current CoreVersion: ''
+2025-03-28 14:15:25 - Updated CoreVersion to: 0.0.1 in Directory.Build.props
+2025-03-28 14:15:25 - This will automatically update all projects that reference CoreVersion
+2025-03-28 14:15:25 - Created version.txt with content: 0.0.1
+2025-03-28 14:16:55 - Starting centralized version increment script...
+2025-03-28 14:16:55 - Backup created at: C:\dev\2025development\Directory.Build.props.bak
+2025-03-28 14:16:55 - Current CoreVersion: ''
+2025-03-28 14:16:55 - Updated CoreVersion to: 0.0.1 in Directory.Build.props
+2025-03-28 14:16:55 - This will automatically update all projects that reference CoreVersion
+2025-03-28 14:16:55 - Created version.txt with content: 0.0.1
+2025-03-28 14:18:14 - Starting centralized version increment script...
+2025-03-28 14:18:14 - Force increment: , Build config: Unknown
+2025-03-28 14:18:14 - Backup created at: C:\dev\2025development\Directory.Build.props.bak
+2025-03-28 14:18:15 - Current CoreVersion: ''
+2025-03-28 14:18:15 - Updated CoreVersion to: 0.0.1 in Directory.Build.props
+2025-03-28 14:18:15 - This will automatically update all projects that reference CoreVersion
+2025-03-28 14:18:15 - Created version.txt with content: 0.0.1
+2025-03-28 14:19:54 - Starting centralized version increment script...
+2025-03-28 14:19:54 - Force increment: True, Build config: Unknown
+2025-03-28 14:19:54 - Backup created at: C:\dev\2025development\Directory.Build.props.bak
+2025-03-28 14:19:54 - Current CoreVersion: ''
+2025-03-28 14:19:54 - Updated CoreVersion to: 0.0.1 in Directory.Build.props
+2025-03-28 14:19:54 - This will automatically update all projects that reference CoreVersion
+2025-03-28 14:19:54 - Created version.txt with content: 0.0.1
+2025-03-28 14:33:37 - Starting centralized version increment script...
+2025-03-28 14:33:37 - Force increment: True, Build config: Unknown
+2025-03-28 14:33:37 - Backup created at: C:\dev\2025development\Directory.Build.props.bak
+2025-03-28 14:33:37 - Current CoreVersion: ''
+2025-03-28 14:33:37 - Updated CoreVersion to: 0.0.1 in Directory.Build.props
+2025-03-28 14:33:37 - This will automatically update all projects that reference CoreVersion
+2025-03-28 14:33:37 - Created version.txt with content: 0.0.1
+2025-03-28 14:40:15 - Starting centralized version increment script...
+2025-03-28 14:40:15 - Force increment: True, Build config: Unknown
+2025-03-28 14:40:15 - Current CoreVersion: ''
+2025-03-28 14:40:15 - Created Version.props file with version: 0.0.1
+2025-03-28 14:40:15 - Created version.txt with content: 0.0.1
+2025-03-28 14:41:08 - Starting centralized version increment script...
+2025-03-28 14:41:08 - Force increment: True, Build config: Unknown
+2025-03-28 14:41:08 - Current CoreVersion: '1.0.1 $(VersionFromProps)'
+2025-03-28 14:41:08 - Created Version.props file with version: 1.0.2
+2025-03-28 14:41:08 - Created version.txt with content: 1.0.2
+2025-03-28 14:47:17 - Starting centralized version increment script...
+2025-03-28 14:47:17 - Force increment: True, Build config: Unknown
+2025-03-28 14:47:17 - Current CoreVersion: '$(VersionFromProps)'
+2025-03-28 14:47:18 - Created Version.props file with version: .0.1
+2025-03-28 14:47:18 - Created version.txt with content: .0.1
+2025-03-28 14:48:59 - Starting centralized version increment script...
+2025-03-28 14:48:59 - Force increment: True, Build config: Unknown
+2025-03-28 14:48:59 - Current CoreVersion: '$(VersionFromProps)'
+2025-03-28 14:48:59 - Created Version.props file with version: .0.1
+2025-03-28 14:48:59 - Created version.txt with content: .0.1

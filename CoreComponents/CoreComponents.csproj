@@ -8,9 +8,7 @@
         <!-- This ensures the assembly is properly identified while maintaining the original namespaces -->
         <RootNamespace>Stickelt.CoreComponents</RootNamespace>
         <AssemblyName>Stickelt.CoreComponents</AssemblyName>
-        <Version>1.0.4</Version>
-        <Authors>Tom Stickel</Authors>
-        <Company>Witcher</Company>
+        <!-- Individual NuGet package properties -->
         <Description>A Razor Class Library containing reusable UI components for Blazor applications</Description>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageOutputPath>C:\dev\LocalNuGet</PackageOutputPath>
@@ -18,13 +16,6 @@
         <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <StaticWebAssetBasePath>_content/Stickelt.CoreComponents</StaticWebAssetBasePath>
-        <!-- Generate assembly info with version -->
-        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-        <GenerateAssemblyVersionAttribute>true</GenerateAssemblyVersionAttribute>
-        <GenerateAssemblyFileVersionAttribute>true</GenerateAssemblyFileVersionAttribute>
-        <AssemblyVersion>$(Version)</AssemblyVersion>
-        <FileVersion>$(Version)</FileVersion>
-        <InformationalVersion>$(Version)-local</InformationalVersion>
     </PropertyGroup>
     <ItemGroup>
         <SupportedPlatform
@@ -51,14 +42,6 @@
             Pack="true"
             PackagePath="content\" />
     </ItemGroup>
-    <!--Runs before every rebuild to increment version-->
-    <Target
-        Name="IncrementVersionScript"
-        BeforeTargets="BeforeBuild"
-        Condition="'$(OS)' == 'Windows_NT'">
-        <Exec
-            Command="powershell -ExecutionPolicy Bypass -File &quot;$(SolutionDir)Increment-Version.ps1&quot;" />
-    </Target>
     <!-- Keep this target for compatibility but it won't actually do anything now -->
     <Target
         Name="IncrementVersion"

@@ -6,17 +6,12 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.4</Version>
-        <!-- Increment version to push a fresh package -->
-        <Authors>Tom Stickel</Authors>
-        <Company>Witcher</Company>
+        <!-- Individual NuGet package properties -->
         <Description>A core library containing shared interfaces, base functionality, and UI components for .NET applications</Description>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageOutputPath>C:\dev\LocalNuGet</PackageOutputPath>
         <!-- Useful NuGet metadata -->
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <DebugType>embedded</DebugType>
@@ -176,47 +171,29 @@
             Version="2.0.0" />
     </ItemGroup>
     <ItemGroup>
-        <!-- Ensure Version.props is included in the NuGet package -->
-        <None
-            Include="Version.props"
-            Pack="true"
-            PackagePath="build\" />
-        <!-- Ensure Version.props is copied to the output directory -->
-        <None
-            Include="Version.props">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-    </ItemGroup>
-    <!-- Tell NuGet not to create a package dependency on CoreComponents -->
-    <!-- Removing this as it might be causing conflicts -->
-    <!--
-    <ItemGroup>
-        <PackageReference Update="Stickelt.CoreComponents" Version="*">
-            <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-    </ItemGroup>
-    -->
-    <!-- Add this to properly include the CoreComponents DLL in the lib folder -->
-    <ItemGroup>
+        <!-- Add this to properly include the CoreComponents DLL in the lib folder -->
         <None
             Include="..\CoreComponents\bin\$(Configuration)\net8.0\Stickelt.CoreComponents.dll">
             <Pack>true</Pack>
             <PackagePath>lib\net8.0</PackagePath>
         </None>
     </ItemGroup>
-    <!--Runs before every rebuild.-->
+    <!--Runs to increment version -->
     <Target
         Name="IncrementVersionScript"
-        BeforeTargets="BeforeBuild"
-        Condition="'$(OS)' == 'Windows_NT'">
+        BeforeTargets="Build">
         <Exec
-            Command="$(PowershellCmd) -ExecutionPolicy Bypass -File &quot;$(SolutionDir)Increment-Version.ps1&quot;" />
+            Command="$(PowershellCmd) -ExecutionPolicy Bypass -File &quot;$(SolutionDir)Increment-Version.ps1&quot; -VisualStudioBuild" 
+            Condition="'$(BuildingInsideVisualStudio)' == 'true'" />
+        <Exec
+            Command="$(PowershellCmd) -ExecutionPolicy Bypass -File &quot;$(SolutionDir)Increment-Version.ps1&quot;" 
+            Condition="'$(BuildingInsideVisualStudio)' != 'true'" />
     </Target>
     <!-- Keep this target for compatibility but it won't actually do anything now -->
     <Target
         Name="IncrementVersion"
         BeforeTargets="BeforeBuild"
-        Condition="'$(MSBuildProjectExtension)' == '.csproj' AND '$(Configuration)' == 'Release'"></Target>
+        Condition="'$(MSBuildProjectExtension)' == '.csproj'"></Target>
     <PropertyGroup>
         <!-- Detect platform and use appropriate PowerShell command -->
         <PowershellCmd

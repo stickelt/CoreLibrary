@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Stickelt.CoreLibrary</PackageId>
-        <Version>1.0.3</Version>
+        <Version>1.0.0</Version>
         <!-- Increment version to push a fresh package -->
         <Authors>Tom Stickel</Authors>
         <Company>Witcher</Company>
@@ -22,6 +22,14 @@
         <DebugType>embedded</DebugType>
         <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
         <WarningsNotAsErrors>NU1605</WarningsNotAsErrors>
+        
+        <!-- Generate assembly info with version -->
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <GenerateAssemblyVersionAttribute>true</GenerateAssemblyVersionAttribute>
+        <GenerateAssemblyFileVersionAttribute>true</GenerateAssemblyFileVersionAttribute>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+        <InformationalVersion>$(Version)-local</InformationalVersion>
     </PropertyGroup>
     <ItemGroup>
         <None

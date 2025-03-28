@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Project>
+  <PropertyGroup>
+    <!-- Define a common version for all projects in the solution -->
+    <CoreVersion>1.0.1</CoreVersion>
+    <!-- Each project will use the common version by default -->
+    <Version>$(CoreVersion)</Version>
+    <!-- Define assembly version props with same value -->
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+    <InformationalVersion>$(Version)</InformationalVersion>
+    <!-- Add suffix for local builds -->
+    <VersionSuffix Condition="'$(Configuration)' == 'Debug'">-local</VersionSuffix>
+    <PackageVersion>$(Version)$(VersionSuffix)</PackageVersion>
+    <!-- Standard NuGet properties -->
+    <Authors>Tom Stickel</Authors>
+    <Company>Witcher</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/stickelt/CoreLibrary</PackageProjectUrl>
+    <!-- Control when version incrementing happens -->
+    <ShouldIncrementVersion>false</ShouldIncrementVersion>
+    <!-- Enable version incrementing only for the first project in Release build or when explicitly requested -->
+    <ShouldIncrementVersion Condition="'$(IncrementVersion)' == 'true'">true</ShouldIncrementVersion>
+  </PropertyGroup>
+</Project>

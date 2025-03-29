@@ -8,6 +8,7 @@ param(
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $versionPropsPath = Join-Path $scriptDir "Version.props"
 $lockFilePath = Join-Path $scriptDir "VersionUpdate.lock"
+$localNugetPath = "C:\dev\LocalNuGet"
 
 # Create a function to write output
 function Write-Output {
@@ -88,4 +89,55 @@ Write-Output "Created Version.props with version $newVersion"
 
 # Also create a plain version.txt file for easier reading
 $newVersion | Out-File -FilePath (Join-Path $scriptDir "version.txt") -Force
-Write-Output "Created version.txt with version $newVersion" 
+Write-Output "Created version.txt with version $newVersion"
+
+# After building packages and copying them to the LocalNuget folder, 
+# Create symbolic links for -dev packages
+Write-Output "Looking for packages in $localNugetPath..."
+$coreLibraryPackages = Get-ChildItem -Path $localNugetPath -Filter "Stickelt.CoreLibrary.$newVersion*.nupkg"
+$coreComponentsPackages = Get-ChildItem -Path $localNugetPath -Filter "Stickelt.CoreComponents.$newVersion*.nupkg"
+
+# Create 'latest-dev' package symbolic links (will be overwritten each time)
+if ($coreLibraryPackages) {
+    $latestCorePath = Join-Path $localNugetPath "Stickelt.CoreLibrary.latest-dev.nupkg"
+    $wildcardCorePath = Join-Path $localNugetPath "Stickelt.CoreLibrary.1.0.nupkg"
+    $latestCoreLibrary = $coreLibraryPackages | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    
+    # Remove old symbolic link if it exists
+    if (Test-Path $latestCorePath) {
+        Remove-Item $latestCorePath -Force
+    }
+    
+    # Remove old wildcard package if it exists
+    if (Test-Path $wildcardCorePath) {
+        Remove-Item $wildcardCorePath -Force
+    }
+    
+    # Create copy (not symlink, as NuGet doesn't handle symlinks well)
+    Copy-Item $latestCoreLibrary.FullName -Destination $latestCorePath -Force
+    Copy-Item $latestCoreLibrary.FullName -Destination $wildcardCorePath -Force
+    Write-Output "Created latest-dev package: $latestCorePath"
+    Write-Output "Created wildcard package: $wildcardCorePath"
+}
+
+if ($coreComponentsPackages) {
+    $latestComponentsPath = Join-Path $localNugetPath "Stickelt.CoreComponents.latest-dev.nupkg"
+    $wildcardComponentsPath = Join-Path $localNugetPath "Stickelt.CoreComponents.1.0.nupkg"
+    $latestCoreComponents = $coreComponentsPackages | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    
+    # Remove old symbolic link if it exists
+    if (Test-Path $latestComponentsPath) {
+        Remove-Item $latestComponentsPath -Force
+    }
+    
+    # Remove old wildcard package if it exists
+    if (Test-Path $wildcardComponentsPath) {
+        Remove-Item $wildcardComponentsPath -Force
+    }
+    
+    # Create copy (not symlink, as NuGet doesn't handle symlinks well)
+    Copy-Item $latestCoreComponents.FullName -Destination $latestComponentsPath -Force
+    Copy-Item $latestCoreComponents.FullName -Destination $wildcardComponentsPath -Force
+    Write-Output "Created latest-dev package: $latestComponentsPath"
+    Write-Output "Created wildcard package: $wildcardComponentsPath"
+} 

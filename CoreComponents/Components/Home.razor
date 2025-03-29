@@ -14,6 +14,7 @@
     <h2 style="color: red;">LOCAL VERSION INDICATOR</h2>
     <p>This text only appears in the local package version. If you see this, you're using the local NuGet package!</p>
     <p>Build timestamp: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</p>
+    <p style="background-color: yellow; padding: 5px; font-weight: bold;">AUTO-UPDATING DEV VERSION: Build time @DateTime.Now.ToString("HH:mm:ss.fff") - No version numbers to update manually!</p>
 </div>
 
 <PackageSourceChecker />
@@ -33,6 +34,9 @@ else
     <p>Welcome to your new app.</p>
 
     <p>New changes here to Home.razor in the CoreComponents</p>
+
+    <p>New changes @DateTime.Now  :  these are from the local home </p>
+
 }
 
 @code {

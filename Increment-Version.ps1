@@ -140,4 +140,23 @@ if ($coreComponentsPackages) {
     Copy-Item $latestCoreComponents.FullName -Destination $wildcardComponentsPath -Force
     Write-Output "Created latest-dev package: $latestComponentsPath"
     Write-Output "Created wildcard package: $wildcardComponentsPath"
+}
+
+# Create fixed version packages for easier referencing
+$latestCoreLibraryPackage = Get-ChildItem -Path "C:\dev\2025development\CoreLibrary\bin\Release\*.nupkg" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$latestCoreComponentsPackage = Get-ChildItem -Path "C:\dev\2025development\CoreComponents\bin\Release\*.nupkg" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+
+# Define fixed version package paths
+$fixedVersionCoreLibraryPath = "C:\dev\LocalNuGet\Stickelt.CoreLibrary.1.0.0.nupkg"
+$fixedVersionCoreComponentsPath = "C:\dev\LocalNuGet\Stickelt.CoreComponents.1.0.0.nupkg"
+
+# Create fixed version packages (overwriting any existing ones)
+if ($latestCoreLibraryPackage) {
+    Write-Host "Creating fixed version package for CoreLibrary at $fixedVersionCoreLibraryPath"
+    Copy-Item -Path $latestCoreLibraryPackage.FullName -Destination $fixedVersionCoreLibraryPath -Force
+}
+
+if ($latestCoreComponentsPackage) {
+    Write-Host "Creating fixed version package for CoreComponents at $fixedVersionCoreComponentsPath" 
+    Copy-Item -Path $latestCoreComponentsPackage.FullName -Destination $fixedVersionCoreComponentsPath -Force
 } 

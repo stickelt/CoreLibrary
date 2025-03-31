@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project
     Sdk="Microsoft.NET.Sdk.Razor">
     <PropertyGroup>
@@ -8,6 +8,26 @@
         <!-- This ensures the assembly is properly identified while maintaining the original namespaces -->
         <RootNamespace>Stickelt.CoreComponents</RootNamespace>
         <AssemblyName>Stickelt.CoreComponents</AssemblyName>
+        <!-- Fixed version across all configurations to prevent conflicts -->
+        <AssemblyVersion>4018.0.0.1</AssemblyVersion>
+        <FileVersion>4018.0.0.1</FileVersion>
+        <InformationalVersion>4018.0.0.1</InformationalVersion>
+        <Version>1.0.31</Version>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+        
+        <!-- Special properties to handle static web assets correctly -->
+        <StaticWebAssetBasePath>_content/Stickelt.CoreComponents</StaticWebAssetBasePath>
+        <StaticWebAssetsEnabled>true</StaticWebAssetsEnabled>
+        <GenerateStaticWebAssetsManifest>true</GenerateStaticWebAssetsManifest>
+        <CompressStaticWebAssets>false</CompressStaticWebAssets>
+        <ShouldCompressStaticWebAssets>false</ShouldCompressStaticWebAssets>
+        <_CompressStaticWebAssets>false</_CompressStaticWebAssets>
+        <BlazorWebAssemblyLoadAllGlobalizationData>false</BlazorWebAssemblyLoadAllGlobalizationData>
+        <RazorLangVersion>8.0</RazorLangVersion>
+        <GenerateEmbeddedFilesManifest>false</GenerateEmbeddedFilesManifest>
+        
         <!-- Individual NuGet package properties -->
         <Description>A Razor Class Library containing reusable UI components for Blazor applications</Description>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -15,7 +35,6 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <StaticWebAssetBasePath>_content/Stickelt.CoreComponents</StaticWebAssetBasePath>
     </PropertyGroup>
     <ItemGroup>
         <SupportedPlatform
@@ -24,7 +43,7 @@
     <ItemGroup>
         <PackageReference
             Include="Microsoft.AspNetCore.Components.Web"
-            Version="8.0.10" />
+            Version="8.0.3" />
         <PackageReference
             Include="Microsoft.Extensions.Configuration.Abstractions"
             Version="8.0.0" />
@@ -65,5 +84,63 @@
         <Message
             Text="Copied NuGet package to $(ReleaseDir) for GitHub Actions"
             Importance="high" />
+    </Target>
+    
+    <!-- Override the problematic ResolveCompressedAssets target -->
+    <Target Name="ResolveCompressedAssets" Returns="@(StaticWebAssetCompressed)">
+        <PropertyGroup>
+            <CompressStaticWebAssets>false</CompressStaticWebAssets>
+            <ShouldCompressStaticWebAssets>false</ShouldCompressStaticWebAssets>
+            <_CompressStaticWebAssets>false</_CompressStaticWebAssets>
+        </PropertyGroup>
+        <ItemGroup>
+            <StaticWebAssetCompressed Remove="@(StaticWebAssetCompressed)" />
+        </ItemGroup>
+        <Message Text="ResolveCompressedAssets target bypassed!" Importance="High" />
+    </Target>
+    
+    <!-- Clean up any old static web assets files -->
+    <Target Name="CleanupOldWebAssets" AfterTargets="Build">
+        <ItemGroup>
+            <OldWebAssetFiles Include="$(MSBuildProjectDirectory)\obj\**\staticwebassets*.*" />
+            <OldWebAssetFiles Include="$(MSBuildProjectDirectory)\bin\**\staticwebassets*.*" />
+            <OldWebAssetDirs Include="$(MSBuildProjectDirectory)\obj\**\staticwebassets" />
+            <OldWebAssetDirs Include="$(MSBuildProjectDirectory)\bin\**\staticwebassets" />
+        </ItemGroup>
+        <Delete Files="@(OldWebAssetFiles)" />
+        <RemoveDir Directories="@(OldWebAssetDirs)" />
+        <Message Text="Cleaned up old static web assets files" Importance="High" />
+    </Target>
+    
+    <!-- Add a timestamp file on successful build to help dependent projects detect changes -->
+    <Target Name="CreateTimestampFile" AfterTargets="Build">
+        <PropertyGroup>
+            <TimestampFile>$(OutputPath)\_BuildTimestamp.txt</TimestampFile>
+        </PropertyGroup>
+        <WriteLinesToFile
+            File="$(TimestampFile)"
+            Lines="Build completed at: $([System.DateTime]::Now.ToString())"
+            Overwrite="true" />
+        <Message
+            Text="Created timestamp file at $(TimestampFile)"
+            Importance="High" />
+    </Target>
+
+    <!-- Create staticwebassets.development.json file explicitly -->
+    <Target Name="CreateStaticWebAssetsDevelopmentJson" AfterTargets="Build">
+        <PropertyGroup>
+            <StaticWebAssetsDevelopmentJsonFile>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(TargetFramework)\staticwebassets.development.json</StaticWebAssetsDevelopmentJsonFile>
+        </PropertyGroup>
+        <WriteLinesToFile File="$(StaticWebAssetsDevelopmentJsonFile)" Lines="{}" Overwrite="true" />
+        <Message Text="Created staticwebassets.development.json file at $(StaticWebAssetsDevelopmentJsonFile)" Importance="High" />
+    </Target>
+
+    <!-- Create staticwebassets.build.endpoints.json file explicitly -->
+    <Target Name="CreateStaticWebAssetsBuildEndpointsJson" AfterTargets="Build">
+        <PropertyGroup>
+            <StaticWebAssetsBuildEndpointsJsonFile>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(TargetFramework)\staticwebassets.build.endpoints.json</StaticWebAssetsBuildEndpointsJsonFile>
+        </PropertyGroup>
+        <WriteLinesToFile File="$(StaticWebAssetsBuildEndpointsJsonFile)" Lines="{}" Overwrite="true" />
+        <Message Text="Created staticwebassets.build.endpoints.json file at $(StaticWebAssetsBuildEndpointsJsonFile)" Importance="High" />
     </Target>
 </Project>

@@ -181,7 +181,8 @@
     <!--Runs to increment version -->
     <Target
         Name="IncrementVersionScript"
-        BeforeTargets="Build">
+        BeforeTargets="Build"
+        Condition="false">
         <Exec
             Command="$(PowershellCmd) -ExecutionPolicy Bypass -File &quot;$(SolutionDir)Increment-Version.ps1&quot; -VisualStudioBuild" 
             Condition="'$(BuildingInsideVisualStudio)' == 'true'" />

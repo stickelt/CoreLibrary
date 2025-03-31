@@ -1,0 +1,12 @@
+@page "/"
+@namespace Stickelt.CoreComponents.Components
+@using Stickelt.CoreComponents.Services
+@using Microsoft.Extensions.Configuration
+
+@inject IConfigurationService ConfigService
+@inject IConfiguration Configuration
+
+<PageTitle>Home</PageTitle>
+
+<VersionDisplay />
+

@@ -8,14 +8,17 @@
         <!-- This ensures the assembly is properly identified while maintaining the original namespaces -->
         <RootNamespace>Stickelt.CoreComponents</RootNamespace>
         <AssemblyName>Stickelt.CoreComponents</AssemblyName>
+        <PackageId>Stickelt.CoreComponents</PackageId>
         <!-- Fixed version across all configurations to prevent conflicts -->
-        <AssemblyVersion>1.0.29.0</AssemblyVersion>
-        <FileVersion>1.0.29.0</FileVersion>
-        <InformationalVersion>1.0.29</InformationalVersion>
-        <Version>1.0.29</Version>
+        <AssemblyVersion>1.0.31.0</AssemblyVersion>
+        <FileVersion>1.0.31.0</FileVersion>
+        <InformationalVersion>1.0.31</InformationalVersion>
+        <Version>1.0.31</Version>
         <NeutralLanguage>en-US</NeutralLanguage>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageOutputPath>C:\dev\LocalNuGet</PackageOutputPath>
         
         <!-- Special properties to handle static web assets correctly -->
         <StaticWebAssetBasePath>_content/Stickelt.CoreComponents</StaticWebAssetBasePath>
@@ -30,8 +33,6 @@
         
         <!-- Individual NuGet package properties -->
         <Description>A Razor Class Library containing reusable UI components for Blazor applications</Description>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageOutputPath>C:\dev\LocalNuGet</PackageOutputPath>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/stickelt/CoreLibrary</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -66,9 +67,9 @@
         Name="IncrementVersion"
         BeforeTargets="BeforeBuild"
         Condition="'$(MSBuildProjectExtension)' == '.csproj' AND '$(Configuration)' == 'Release'"></Target>
-    <!-- Copy packages to bin/Release for GitHub Actions -->
+    <!-- Disable this target temporarily until the package is created -->
     <Target
-        Name="CopyPackagesToBinRelease"
+        Name="CopyPackagesToBinRelease_DISABLED"
         AfterTargets="Pack"
         Condition="'$(Configuration)' == 'Release'">
         <PropertyGroup>

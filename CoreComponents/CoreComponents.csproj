@@ -9,10 +9,10 @@
         <RootNamespace>Stickelt.CoreComponents</RootNamespace>
         <AssemblyName>Stickelt.CoreComponents</AssemblyName>
         <!-- Fixed version across all configurations to prevent conflicts -->
-        <AssemblyVersion>4018.0.0.1</AssemblyVersion>
-        <FileVersion>4018.0.0.1</FileVersion>
-        <InformationalVersion>4018.0.0.1</InformationalVersion>
-        <Version>1.0.31</Version>
+        <AssemblyVersion>1.0.29.0</AssemblyVersion>
+        <FileVersion>1.0.29.0</FileVersion>
+        <InformationalVersion>1.0.29</InformationalVersion>
+        <Version>1.0.29</Version>
         <NeutralLanguage>en-US</NeutralLanguage>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
@@ -100,7 +100,8 @@
     </Target>
     
     <!-- Clean up any old static web assets files -->
-    <Target Name="CleanupOldWebAssets" AfterTargets="Build">
+    <!-- <Target Name="CleanupOldWebAssets" AfterTargets="Build"> -->
+    <Target Name="CleanupOldWebAssets_DISABLED" AfterTargets="Build">
         <ItemGroup>
             <OldWebAssetFiles Include="$(MSBuildProjectDirectory)\obj\**\staticwebassets*.*" />
             <OldWebAssetFiles Include="$(MSBuildProjectDirectory)\bin\**\staticwebassets*.*" />
@@ -127,7 +128,8 @@
     </Target>
 
     <!-- Create staticwebassets.development.json file explicitly -->
-    <Target Name="CreateStaticWebAssetsDevelopmentJson" AfterTargets="Build">
+    <!-- <Target Name="CreateStaticWebAssetsDevelopmentJson" AfterTargets="Build"> -->
+    <Target Name="CreateStaticWebAssetsDevelopmentJson_DISABLED" AfterTargets="Build">
         <PropertyGroup>
             <StaticWebAssetsDevelopmentJsonFile>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(TargetFramework)\staticwebassets.development.json</StaticWebAssetsDevelopmentJsonFile>
         </PropertyGroup>
@@ -136,7 +138,8 @@
     </Target>
 
     <!-- Create staticwebassets.build.endpoints.json file explicitly -->
-    <Target Name="CreateStaticWebAssetsBuildEndpointsJson" AfterTargets="Build">
+    <!-- <Target Name="CreateStaticWebAssetsBuildEndpointsJson" AfterTargets="Build"> -->
+    <Target Name="CreateStaticWebAssetsBuildEndpointsJson_DISABLED" AfterTargets="Build">
         <PropertyGroup>
             <StaticWebAssetsBuildEndpointsJsonFile>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(TargetFramework)\staticwebassets.build.endpoints.json</StaticWebAssetsBuildEndpointsJsonFile>
         </PropertyGroup>
